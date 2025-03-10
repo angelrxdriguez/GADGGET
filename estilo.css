@@ -1,0 +1,18 @@
+/*GENERALES && BARRA DE NAVEGACION*/
+body{
+    font-family: "Oswald", sans-serif !important;
+    font-optical-sizing: auto !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    background-color: black !important;
+}
+.logo{
+border-radius: 100%;
+}
+.navbar.navbar-expand-md.navbar-dark.bg-dark{
+background-color: black !important;
+}
+.active{
+    border-bottom: solid 2px red;
+    font-size: 110%;
+}
