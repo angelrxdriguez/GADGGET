@@ -11,8 +11,46 @@ border-radius: 100%;
 }
 .navbar.navbar-expand-md.navbar-dark.bg-dark{
 background-color: black !important;
+font-size: 120%;
 }
 .active{
     border-bottom: solid 2px red;
     font-size: 110%;
+}
+/*home++++++++++++++++++++++++++*/
+.contenedorprincipal{
+    height: 830px !important;
+    width: auto !important;
+    text-align: center;
+    /*
+    background-image: url(img/setuprojo.jpg);*/
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.349) 0%, rgba(71, 71, 71, 0.301) 58%), 
+    url(img/setuprojo.jpg);
+    background-size: cover;
+    font-size: 250% !important;
+}
+.mantener{
+    color: rgba(240, 248, 255, 0);
+}
+.accede{
+    margin-top: 250px;
+    color: white !important;
+}
+.visita{
+margin-bottom: 50px;
+}
+.enlacetienda{
+    text-decoration: none;
+    color: red;
+    background-color: white;
+    padding:1%;
+    border-radius: 20px;
+    font-size: 100% !important;
+}
+.enlacetienda:hover{
+    color: white;
+    background-color: rgb(167, 15, 15);
+}
+.info{
+    margin-top: 50px;
 }
