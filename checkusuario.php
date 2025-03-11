@@ -15,7 +15,7 @@ $user = $collection->findOne(['nombre' => $nombre]);
 if ($user) {
     if ($contra === $user['contra']) {
         $_SESSION['usuario'] = $nombre; 
-        header('Location: index.html');
+        header('Location: index.php');
         exit();
     } else {
         echo "<script>alert('Contraseña incorrecta.'); window.location.href='login.html';</script>";
