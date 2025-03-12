@@ -54,3 +54,69 @@ margin-bottom: 50px;
 .info{
     margin-top: 50px;
 }
+/*tienda*/
+.productos{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.producto{
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom:5%;
+}
+
+.producto:hover{
+    width: 51%;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.precio{
+    font-weight: bolder;
+    color: red;
+}
+.btn.carrito{
+    background-color: white;
+    border: solid black 2px;
+}
+.btn.carrito:hover{
+    background-color: rgb(255, 157, 157);
+}
+/*ADMINISTRADOR*/
+.opciones{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.enlaceopcion{
+    text-decoration: none;
+}
+.opcion{
+    color: white;
+    text-align: center;
+    background-color: rgb(32, 32, 32);
+    margin: 5%;
+    padding: 5%;
+    border-radius: 25px;
+}
+.opcion:hover{
+    background-color: gray;
+}
+.iconoopcion{
+    width: 25%;
+}
+@media screen and (min-width: 1025px) {
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .productos {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .productos {
+        grid-template-columns: repeat(1,1fr);
+    }
+    .opciones{
+        grid-template-columns: repeat(1,1fr);
+    }
+}

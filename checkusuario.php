@@ -10,6 +10,14 @@ $collection = $database->usuarios;
 $nombre = $_POST['nombre'];
 $contra = $_POST['contra'];
 
+// Comprobar si es el usuario admin
+if ($nombre === "admin" && $contra === "abc123.") {
+    $_SESSION['usuario'] = "admin";
+    header('Location: admin.php');
+    exit();
+}
+
+// Buscar usuario en la base de datos
 $user = $collection->findOne(['nombre' => $nombre]);
 
 if ($user) {

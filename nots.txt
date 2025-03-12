@@ -1,0 +1,5 @@
+cosas que puede hacer el admin:
+-añadir prodructos 
+-eliminar productos
+-añadir stock
+-restar stock

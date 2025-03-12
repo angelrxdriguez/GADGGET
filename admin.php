@@ -1,9 +1,15 @@
+<?php
+session_start(); 
+//si el user inicio sesion
+$usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INDEX</title>
+    <title>ADMIN</title>
     <link rel="icon" type="image/png" href="fotos/enelpueblo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,11 +34,11 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="index.php">HOME</a>
+                    <a class="nav-link active" aria-current="page" href="index.php">HOME</a>
                 </li>
                
                 <li class="nav-item">
-                    <a class="nav-link active" href="tienda.php">TIENDA</a>
+                    <a class="nav-link" href="tienda.php">TIENDA</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="conciertos.html">GADGGET</a>
@@ -40,11 +46,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="conciertos.html">CONTACTANOS</a>
             </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="carrito.html">
-                        <img src="ico/carrito-de-compras (1).png" alt="Carrito" height="35" class="nav-icon">
-                    </a>
-                </li>
+                
                 <li class="nav-item">
     <?php if ($usuario): ?>
         <a class="nav-link" href="usuario.php">
@@ -61,36 +63,6 @@
         </div>
     </div>
 </nav>
-<div class="productos">
-    <div class="card producto">
-        <img class="card-img-top" src="shop/teclado.png" alt="teclado">
-        <div class="card-body text-center">
-          <h5 class="card-title">Teclado Gamer Razer G502</h5>
-          <p class="card-text text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. cupiditate nobis eaque maiores blanditiis nemo? </p>
-          <h6 class="precio">$99.99</h6>
-          <a href="carrito.html" class="btn carrito">Añadir al carrito</a>
-        </div>
-      </div>
-      <div class="card producto">
-        <img class="card-img-top" src="shop/teclado.png" alt="teclado">
-        <div class="card-body text-center">
-          <h5 class="card-title">Teclado Gamer Razer G502</h5>
-          <p class="card-text text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. cupiditate nobis eaque maiores blanditiis nemo? </p>
-          <h6 class="precio">$99.99</h6>
-          <a href="carrito.html" class="btn carrito">Añadir al carrito</a>
-        </div>
-      </div>
-      <div class="card producto">
-        <img class="card-img-top" src="shop/teclado.png" alt="teclado">
-        <div class="card-body text-center">
-          <h5 class="card-title">Teclado Gamer Razer G502</h5>
-          <p class="card-text text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. cupiditate nobis eaque maiores blanditiis nemo? </p>
-          <h6 class="precio">$99.99</h6>
-          <a href="carrito.html" class="btn carrito">Añadir al carrito</a>
-        </div>
-      </div>
-</div>
-
 
 <footer class="text-center text-white" style="background-color: #000000">
     <div class="container">
