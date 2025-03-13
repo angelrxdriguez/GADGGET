@@ -45,7 +45,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="admproductos.php">+PRODUCTOS</a>
+                        <a class="nav-link" href="admproductos.php">PRODUCTOS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="admstock.php">STOCK</a>

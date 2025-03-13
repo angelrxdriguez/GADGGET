@@ -1,7 +1,16 @@
 <?php
 session_start(); 
+require 'vendor/autoload.php'; 
 //si el user inicio sesion
 $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
+// Conectar a MongoDB
+$uri = "mongodb+srv://angelrp:abc123.@cluster0.76po7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+$client = new MongoDB\Client($uri);
+$database = $client->gadgget; 
+$collection = $database->productos; 
+
+// Obtener todos los productos
+$productos = $collection->find();
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +76,22 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         </div>
     </div>
 </nav>
-
+<div class="productos">
+            <?php foreach ($productos as $producto): ?>
+                    <div class="card producto">
+                        <img class="card-img-top" src="<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><?= htmlspecialchars($producto['nombre']) ?></h5>
+                            <p class="card-text text-muted"><?= htmlspecialchars($producto['descripcion']) ?></p>
+                            <h6 class="precio">$<?= number_format(floatval($producto['precio']), 2) ?></h6>
+                            <h6 class="stock">STOCK - <?= intval($producto['stock']) ?></h6>
+                            <button class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#borrarModal" data-id="<?= $producto['_id'] ?>">
+                                BORRAR PRODUCTO
+                            </button>
+                        </div>
+                    </div>
+            <?php endforeach; ?>
+    </div>
 
 <footer class="text-center text-white" style="background-color: #000000">
     <div class="container">

@@ -103,15 +103,62 @@ margin-bottom: 50px;
 .iconoopcion{
     width: 25%;
 }
-/*ADMIN*/
+/*ADMIN ------------------------------*/
+/*productos*/
 .container.mt-5.gestion{
     display: flex;
     flex-direction: column;
     background-color: rgb(78, 78, 78);
     padding: 2%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 .productos.adm{
+    background-color: rgb(65, 65, 65);
+    padding-top: 2%;
+}
+/*stock*/
+.productosstock{
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: rgb(65, 65, 65);
+}
+.productostock{
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
     margin-top: 2%;
+}
+.sid{
+
+margin-right: 1%;
+margin-left: 1%;
+margin-top: 1%;
+padding: 1%;
+background-color: azure;
+border-radius: 25px;
+}
+.snombre{
+    
+    margin-right: 1%;
+    margin-left: 1%;
+    padding: 1%;
+}
+.sstock{
+    
+    margin-right: 1%;
+    margin-left: 1%;
+    padding: 1%;
+}
+.botonesstock{
+    display: flex;        
+    justify-content: flex-end; 
+    width: 100%;        
+    margin-bottom: 1%;
+    gap: 2%;
 }
 @media screen and (min-width: 1025px) {
 }
