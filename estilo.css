@@ -103,6 +103,16 @@ margin-bottom: 50px;
 .iconoopcion{
     width: 25%;
 }
+/*ADMIN*/
+.container.mt-5.gestion{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(78, 78, 78);
+    padding: 2%;
+}
+.productos.adm{
+    margin-top: 2%;
+}
 @media screen and (min-width: 1025px) {
 }
 

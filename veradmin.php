@@ -1,15 +1,9 @@
 <?php
 session_start();
 
-// Si no hay sesión iniciada, redirige a login.php
-if (!isset($_SESSION['usuario']) || !isset($_SESSION['contra'])) {
-    header("Location: login.php");
-    exit();
-}
-
-// Verificar si el usuario es admin con la contraseña correcta
-if ($_SESSION['usuario'] !== "admin" || $_SESSION['contra'] !== "abc") {
-    header("Location: login.php");
+// Si no hay sesión iniciada o no es admin, redirige a login.php
+if (!isset($_SESSION['usuario']) || $_SESSION['usuario'] !== "admin") {
+    header("Location: login.html");
     exit();
 }
 
