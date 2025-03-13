@@ -1,7 +1,10 @@
 <?php
+require 'veradminl.php';
 session_start(); 
 //si el user inicio sesion
 $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
+session_start();
+
 ?>
 
 <!DOCTYPE html>
