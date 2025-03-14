@@ -160,6 +160,42 @@ border-radius: 25px;
     margin-bottom: 1%;
     gap: 2%;
 }
+/*usuario apartado*/
+.contenedorusuario{
+text-align: center;
+background-color: #2e2e2e;
+padding-top: 5%;
+padding-bottom: 5%;
+}
+.contenedorfotouser{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.fotouser{
+width: 20% !important;
+}
+.datosuser{
+margin-top: 2%;
+color: white;
+}
+.correouser{
+
+}
+.salir{
+margin-top: 3%;
+padding: 1%;
+padding-left: 2%;
+padding-right: 2%;
+border-radius: 25px;
+border: none;
+background-color: white !important;
+font-size: 150%;
+}
+.salir:hover{
+background-color: red !important;
+color: white;
+}
 @media screen and (min-width: 1025px) {
 }
 

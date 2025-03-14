@@ -64,32 +64,42 @@ $productos = $collection->find();
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="crearproducto.php" method="POST">
-                        <div class="mb-3">
-                            <label for="nombre" class="form-label">Nombre del Producto</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="descripcion" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="precio" class="form-label">Precio</label>
-                            <input type="number" class="form-control" id="precio" name="precio" step="0.01" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="imagen" class="form-label">Ruta de la Imagen</label>
-                            <input type="text" class="form-control" id="imagen" name="imagen" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="stock" class="form-label">Stock Inicial</label>
-                            <input type="number" class="form-control" id="stock" name="stock" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-success">Guardar Producto</button>
-                        </div>
-                    </form>
+                <form action="crearproducto.php" method="POST">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre del Producto</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required>
+    </div>
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="precio" class="form-label">Precio</label>
+        <input type="number" class="form-control" id="precio" name="precio" step="0.01" required>
+    </div>
+    <div class="mb-3">
+        <label for="imagen" class="form-label">Ruta de la Imagen</label>
+        <input type="text" class="form-control" id="imagen" name="imagen" required>
+    </div>
+    <div class="mb-3">
+        <label for="stock" class="form-label">Stock Inicial</label>
+        <input type="number" class="form-control" id="stock" name="stock" required>
+    </div>
+    <div class="mb-3">
+        <label for="tipo" class="form-label">Tipo de Producto</label>
+        <select class="form-control" id="tipo" name="tipo" required>
+            <option value="raton">Raton</option>
+            <option value="teclado">Teclado</option>
+            <option value="cascos">Cascos</option>
+            <option value="home">Home</option>
+        </select>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-success">Guardar Producto</button>
+    </div>
+</form>
+
                 </div>
             </div>
         </div>
@@ -124,6 +134,7 @@ $productos = $collection->find();
                             <p class="card-text text-muted"><?= htmlspecialchars($producto['descripcion']) ?></p>
                             <h6 class="precio">$<?= number_format(floatval($producto['precio']), 2) ?></h6>
                             <h6 class="stock">STOCK - <?= intval($producto['stock']) ?></h6>
+                            <h5 class="card-title"><?= htmlspecialchars($producto['tipo']) ?></h5>
                             <button class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#borrarModal" data-id="<?= $producto['_id'] ?>">
                                 BORRAR PRODUCTO
                             </button>
