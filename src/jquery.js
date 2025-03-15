@@ -13,4 +13,13 @@ $(document).ready(function() {
         var productoId = $(this).data('id');
         $('#productoIdRestar').val(productoId);
     });
+    $("body").prepend('<div id="alerta-carrito" class="alert alert-light">Añadido al carrito</div>');
+
+    $(".btn.carrito").click(function () {
+        $("#alerta-carrito").removeClass("d-none").fadeIn();
+
+        setTimeout(() => {
+            $("#alerta-carrito").fadeOut();
+        }, 1500);
+    });
 });

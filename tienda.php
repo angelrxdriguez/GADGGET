@@ -75,6 +75,7 @@ $productos = $collection->find();
         </div>
     </div>
 </nav>
+
 <div class="productos">
             <?php foreach ($productos as $producto): ?>
                     <div class="card producto">
@@ -84,9 +85,7 @@ $productos = $collection->find();
                             <p class="card-text text-muted"><?= htmlspecialchars($producto['descripcion']) ?></p>
                             <h6 class="precio">$<?= number_format(floatval($producto['precio']), 2) ?></h6>
                             <h6 class="stock">STOCK - <?= intval($producto['stock']) ?></h6>
-                            <button class="btn btn-danger mt-3" data-bs-toggle="modal" data-bs-target="#borrarModal" data-id="<?= $producto['_id'] ?>">
-                                BORRAR PRODUCTO
-                            </button>
+                           
                         </div>
                     </div>
             <?php endforeach; ?>
@@ -154,6 +153,8 @@ $productos = $collection->find();
         >
     </div>
   </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="src/jquery.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
