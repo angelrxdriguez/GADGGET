@@ -78,18 +78,18 @@ $productos = $collection->find();
 
 <div class="productos">
             <?php foreach ($productos as $producto): ?>
+              <a href="subtienda.php?id=<?= $producto['_id'] ?>" class="enlacesubtienda">
                     <div class="card producto">
                         <img class="card-img-top" src="<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>">
                         <div class="card-body text-center">
                             <h5 class="card-title"><?= htmlspecialchars($producto['nombre']) ?></h5>
                             <p class="card-text text-muted"><?= htmlspecialchars($producto['descripcion']) ?></p>
                             <h6 class="precio">$<?= number_format(floatval($producto['precio']), 2) ?></h6>
-                            <h6 class="stock">STOCK - <?= intval($producto['stock']) ?></h6>
-                           
                         </div>
                     </div>
+                    </a>
             <?php endforeach; ?>
-    </div>
+</div>
 
 <footer class="text-center text-white" style="background-color: #000000">
     <div class="container">
