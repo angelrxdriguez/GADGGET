@@ -48,11 +48,17 @@ try {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <h1><?= htmlspecialchars($producto['nombre']) ?></h1>
+<div class="fototit">
+<h1><?= htmlspecialchars($producto['nombre']) ?></h1>
     <img src="<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>">
-    <p><?= htmlspecialchars($producto['descripcion']) ?></p>
+    
+</div>
+<div class="datos">
+<p><?= htmlspecialchars($producto['descripcion']) ?></p>
     <h3>Precio: $<?= number_format(floatval($producto['precio']), 2) ?></h3>
     <h4>Stock: <?= intval($producto['stock']) ?></h4>
+</div>
+  
 
     <!-- Volver a la tienda -->
     <a href="tienda.php">Volver a la tienda</a>
