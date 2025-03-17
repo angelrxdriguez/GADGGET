@@ -32,7 +32,8 @@ if ($user) {
 //mete en la base
 $result = $collection->insertOne([
     'nombre' => $nombre,
-    'contra' => $contra1
+    'contra' => $contra1,
+    'cesta' => []
 ]);
 
 

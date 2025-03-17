@@ -1,5 +1,11 @@
-cosas que puede hacer el admin:
--añadir prodructos 
--eliminar productos
--añadir stock
--restar stock
+cosas por hacer:
+ADMIN:
+-añadir prodructos 			si
+-eliminar productos			si
+-añadir stock				si	
+-restar stock				si
+-aceptar pedido		
+-rechazar pedido(devuelve stock)	
+CESTA y pago:
+- añadir cesta se añade a un array dentro de el usuario que se llama cesta AQUI SE RESTA EL STOCK AL AÑADIR CESTA
+- entra en cesta y ve los productos que añadio
