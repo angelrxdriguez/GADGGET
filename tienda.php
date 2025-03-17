@@ -53,7 +53,7 @@ $productos = $collection->find();
                 <a class="nav-link" href="conciertos.html">CONTACTANOS</a>
             </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="carrito.html">
+                    <a class="nav-link" href="carrito.php">
                         <img src="ico/carrito-de-compras (1).png" alt="Carrito" height="35" class="nav-icon">
                     </a>
                 </li>

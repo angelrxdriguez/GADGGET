@@ -77,7 +77,7 @@ try {
                 <a class="nav-link" href="conciertos.html">CONTACTANOS</a>
             </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="carrito.html">
+                    <a class="nav-link" href="carrito.php">
                         <img src="ico/carrito-de-compras (1).png" alt="Carrito" height="35" class="nav-icon">
                     </a>
                 </li>
@@ -100,7 +100,11 @@ try {
         <h4 class="descripcionprod"><?= htmlspecialchars($producto['descripcion']) ?></h4>
            <div class="subdatos">
             <h3 class="precioprod"><?= number_format(floatval($producto['precio']), 2) ?></h3>
-            <button type="submit" class="añadircarrito">Añadir Carrito</button>
+            <form action="metercesta.php" method="POST">
+    <input type="hidden" name="id" value="<?= $producto['_id'] ?>">
+    <button type="submit" class="añadircarrito">Añadir Carrito</button>
+</form>
+
         </div>
         </div>
 </div>
