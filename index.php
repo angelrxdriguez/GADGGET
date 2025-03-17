@@ -67,7 +67,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
 <div class="contenedorprincipal"><p class="mantener">a</p>
   <div class="accede"> 
     <h1 class="visita">VISITA NUESTROS GADGETS</h1>
-    <a href="" class="enlacetienda">TIENDA</a>
+    <a href="tienda.php" class="enlacetienda">TIENDA</a>
     <H4 class="info">MAS DE 1000 PRODUCTOS EN STOCK, ENCUENTRA LO QUE NECESITAS</H4>
   </div>
 </div>

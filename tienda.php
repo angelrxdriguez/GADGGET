@@ -1,14 +1,12 @@
 <?php
 session_start(); 
 require 'vendor/autoload.php'; 
-//si el user inicio sesion
 $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
 $uri = "mongodb+srv://angelrp:abc123.@cluster0.76po7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 $client = new MongoDB\Client($uri);
 $database = $client->gadgget; 
 $collection = $database->productos; 
 
-// Obtener todos los productos
 $productos = $collection->find();
 ?>
 
@@ -75,7 +73,13 @@ $productos = $collection->find();
         </div>
     </div>
 </nav>
-
+<h3 class="filtro sub">TODOS</h3>
+<div class="filtros">
+  <h3 class="filtro">Raton</h3>
+  <h3 class="filtro">Teclado</h3>
+  <h3 class="filtro">Cascos</h3>
+  <h3 class="filtro">Home</h3>
+</div>
 <div class="productos">
             <?php foreach ($productos as $producto): ?>
               <a href="subtienda.php?id=<?= $producto['_id'] ?>" class="enlacesubtienda">

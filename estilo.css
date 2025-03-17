@@ -4,13 +4,13 @@ body{
     font-optical-sizing: auto !important;
     font-weight: 700 !important;
     font-style: normal !important;
-    background-color: black !important;
+    background-color: #000000 !important;
 }
 .logo{
 border-radius: 100%;
 }
 .navbar.navbar-expand-md.navbar-dark.bg-dark{
-background-color: black !important;
+background-color: rgba(0, 0, 0, 0.404) !important;
 font-size: 120%;
 }
 .active{
@@ -24,8 +24,8 @@ font-size: 120%;
     text-align: center;
     /*
     background-image: url(img/setuprojo.jpg);*/
-    background: radial-gradient(circle, rgba(255, 0, 0, 0.349) 0%, rgba(71, 71, 71, 0.301) 58%), 
-    url(img/setuprojo.jpg);
+    background: linear-gradient(90deg, rgba(172, 172, 172, 0.349) 0%, rgba(92, 92, 92, 0.589) 58%), 
+    url(img/setupgris.jpg);
     background-size: cover;
     font-size: 250% !important;
 }
@@ -55,9 +55,41 @@ margin-bottom: 50px;
     margin-top: 50px;
 }
 /*tienda*/
+.filtros{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
+}
+.filtro{
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    border: solid white 0.5px;
+    margin: 1%;
+}
+.filtro:hover{
+    background-color: white;
+    color: red;
+}
+.filtro.sub{
+    background-color: white;
+    color: red;
+    margin-left: 25%;
+    width: 50%;
+}
+.filtro.sub:hover{
+    background-color: white;
+    color: red;
+}
 .productos{
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    margin-top: 3%;
 }
 .producto{
     width: 50%;
@@ -69,6 +101,7 @@ margin-bottom: 50px;
     width: 51%;
     transition: 0.2s;
     cursor: pointer;
+    color: #000000 !important;
 }
 .precio{
     font-weight: bolder;
@@ -100,6 +133,89 @@ margin-bottom: 50px;
     color: black;
 }
 /*SUBTIENDA-----*/
+.contenedorsub{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+color: white;
+margin-top: 5%;
+}
+.fototit{
+    color: white;
+    text-align: center;
+    width: 70%;
+    background-color: white;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 22px;
+    border-top-left-radius: 22px;
+    margin-left: 5%;
+border-bottom-left-radius: 22px;
+
+}
+.fotoprod{
+}
+.titprod{
+text-align: center;
+width: 100%;
+background-color: #ffffff;
+border-top-left-radius: 22px;
+color: red;
+border-bottom: solid black;
+padding: 1%;
+border-top-right-radius: 20px;
+}
+.datos{
+text-align: center;
+height: 100%; 
+}
+.descripcionprod{
+ margin-top: 2%;
+}
+.subdatos{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+margin-top: 20%;
+}
+.precioprod{
+margin-top: auto;
+text-align: center;
+padding: 2%;
+margin-left: 5%;
+width: 45%;
+border-radius: 20px;
+background-color: white;
+color: red;
+}
+.precioprod::after{
+    content: "€";
+}
+.añadircarrito{
+border: none;
+background-color: white;
+border-radius: 20px;
+color: red;
+font-size: 120%;
+width: 45%;
+margin-left: 45%;
+font-weight: bolder;
+}
+.añadircarrito:hover{
+color: white;
+background-color: rgb(255, 120, 120);
+}
+.añadircarrito:active{
+    color: white;
+    background-color: red;
+}
+.relacionados{
+    margin-top: 5%;
+    background-color: white;
+    color: red;
+    width: 30%;
+    text-align: center;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
 /*ADMINISTRADOR*/
 .opciones{
     display: grid;
@@ -122,6 +238,7 @@ margin-bottom: 50px;
 .iconoopcion{
     width: 25%;
 }
+
 /*ADMIN ------------------------------*/
 /*productos*/
 .container.mt-5.gestion{
@@ -214,6 +331,10 @@ font-size: 150%;
 .salir:hover{
 background-color: red !important;
 color: white;
+}
+/*footer*/
+footer{
+    margin-top: 20%;
 }
 @media screen and (min-width: 1025px) {
 }
