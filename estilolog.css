@@ -3,7 +3,7 @@ body{
     font-optical-sizing: auto !important;
     font-weight: 700 !important;
     font-style: normal !important;
-    background-color: black !important;
+    background-color: rgb(255, 255, 255) !important;
 }
 .navbar.navbar-expand-md.navbar-dark.bg-dark{
     background-color: black !important;

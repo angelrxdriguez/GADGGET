@@ -1,9 +1,21 @@
+<?php
+session_start(); 
+require 'vendor/autoload.php'; 
+$usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
+$uri = "mongodb+srv://angelrp:abc123.@cluster0.76po7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+$client = new MongoDB\Client($uri);
+$database = $client->gadgget; 
+$collection = $database->productos; 
+
+$productos = $collection->find(['tipo' => 'teclado']);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INDEX</title>
+    <title>subratones</title>
     <link rel="icon" type="image/png" href="fotos/enelpueblo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,44 +75,26 @@
 </nav>
 <a href="tienda.php" class="enlacefiltro"><h3 class="filtro sub" id="todos">TODOS</h3></a>
 <div class="filtros">
-<a href="subtienda/subratones.php" class="enlacefiltro"><h3 class="filtro"><img src="ico/computer-mouse.png" id="raton" class="icofiltro"></h3></a>
-  <a href="subtienda/subcascos.php" class="enlacefiltro"><h3 class="filtro"><img src="ico/headphone.png" id="cascos" class="icofiltro"></h3></a>
-  <a href="subtienda/subhome.php" class="enlacefiltro"><h3 class="filtro"><img src="ico/home.png" id="home" class="icofiltro"></h3></a>
-  <a href="subtienda/subteclados.php" class="enlacefiltro"><h3 class="filtro"><img src="ico/keyboard.png" id="teclado" class="icofiltro"></h3></a>
+<a href="subratones.php" class="enlacefiltro"><h3 class="filtro"><img src="ico/computer-mouse.png" id="raton" class="icofiltro"></h3></a>
+  <a href="subcascos.php" class="enlacefiltro"><h3 class="filtro"><img src="ico/headphone.png" id="cascos" class="icofiltro"></h3></a>
+  <a href="subhome.php" class="enlacefiltro"><h3 class="filtro"><img src="ico/home.png" id="home" class="icofiltro"></h3></a>
+  <a href="subteclados.php" class="enlacefiltro"><h3 class="filtro"><img src="ico/keyboard (1).png" id="teclado" class="icofiltro"></h3></a>
 </div>
 
 <div class="productos">
-    <div class="card producto">
-        <img class="card-img-top" src="shop/teclado.png" alt="teclado">
-        <div class="card-body text-center">
-          <h5 class="card-title">Teclado Gamer Razer G502</h5>
-          <p class="card-text text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. cupiditate nobis eaque maiores blanditiis nemo? </p>
-          <h6 class="precio">$99.99</h6>
-          <a href="carrito.html" class="btn carrito">Añadir al carrito</a>
-        </div>
-      </div>
-      <div class="card producto">
-        <img class="card-img-top" src="shop/teclado.png" alt="teclado">
-        <div class="card-body text-center">
-          <h5 class="card-title">Teclado Gamer Razer G502</h5>
-          <p class="card-text text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. cupiditate nobis eaque maiores blanditiis nemo? </p>
-          <h6 class="precio">$99.99</h6>
-          <a href="carrito.html" class="btn carrito">Añadir al carrito</a>
-        </div>
-      </div>
-      <div class="card producto">
-        <img class="card-img-top" src="shop/teclado.png" alt="teclado">
-        <div class="card-body text-center">
-          <h5 class="card-title">Teclado Gamer Razer G502</h5>
-          <p class="card-text text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. cupiditate nobis eaque maiores blanditiis nemo? </p>
-          <h6 class="precio">$99.99</h6>
-          <button class="btn carrito" data-id="<?= $producto['_id'] ?>">
-            AÑADIR CARRITO
-         </button>
-        </div>
-      </div>
+    <?php foreach ($productos as $producto): ?>
+        <a href="subtienda.php?id=<?= $producto['_id'] ?>" class="enlacesubtienda">
+            <div class="card producto">
+                <img class="card-img-top" src="<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>">
+                <div class="card-body text-center">
+                    <h5 class="card-title"><?= htmlspecialchars($producto['nombre']) ?></h5>
+                    <p class="card-text text-muted"><?= htmlspecialchars($producto['descripcion']) ?></p>
+                    <h6 class="precio">$<?= number_format(floatval($producto['precio']), 2) ?></h6>
+                </div>
+            </div>
+        </a>
+    <?php endforeach; ?>
 </div>
-
 
 <footer class="text-center text-white" style="background-color: #000000">
     <div class="container">
@@ -164,6 +158,8 @@
         >
     </div>
   </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="src/jquery.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

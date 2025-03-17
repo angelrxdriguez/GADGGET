@@ -55,6 +55,10 @@ margin-bottom: 50px;
     margin-top: 50px;
 }
 /*tienda*/
+.enlacefiltro{
+    text-decoration: none;
+    margin: 0.6%;
+}
 .filtros{
     display: flex;
     flex-direction: row;
@@ -67,42 +71,54 @@ margin-bottom: 50px;
     width: 100%;
     text-align: center;
     cursor: pointer;
-    background-color: #2e2e2e;
+    background-color: #ffffff;
     border-radius: 10px;
     border: solid white 0.5px;
     margin: 1%;
 }
 .filtro:hover{
-    background-color: white;
+box-shadow: 2px 2px 20px 2px red;
     color: red;
 }
 .filtro.sub{
     background-color: white;
-    color: red;
+    color: black;
     margin-left: 25%;
     width: 50%;
 }
 .filtro.sub:hover{
-    background-color: white;
-    color: red;
+box-shadow: 2px 2px 20px 2px red;
+}
+.icofiltro{
+    width: 25%;
+    padding: 5%;
 }
 .productos{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     margin-top: 3%;
+    grid-auto-flow: dense; 
+}
+.card.producto{
+    background-color: #ffffff;
+}
+.card.producto:hover{
+box-shadow: 2px 2px 20px 2px red;
 }
 .producto{
     width: 50%;
     margin-left: 25%;
     margin-bottom:5%;
+    
 }
 
 .producto:hover{
-    width: 51%;
+    width: 50%;
     transition: 0.2s;
     cursor: pointer;
     color: #000000 !important;
 }
+
 .precio{
     font-weight: bolder;
     color: red;
@@ -351,5 +367,9 @@ footer{
     }
     .opciones{
         grid-template-columns: repeat(1,1fr);
+    }
+    .filtros{
+        width: 100%;
+        margin-left: 0%;
     }
 }

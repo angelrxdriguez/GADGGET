@@ -73,26 +73,27 @@ $productos = $collection->find();
         </div>
     </div>
 </nav>
-<h3 class="filtro sub">TODOS</h3>
+<a href="tienda.php" class="enlacefiltro"><h3 class="filtro sub" id="todos">TODOS</h3></a>
 <div class="filtros">
-  <h3 class="filtro">Raton</h3>
-  <h3 class="filtro">Teclado</h3>
-  <h3 class="filtro">Cascos</h3>
-  <h3 class="filtro">Home</h3>
+<a href="subratones.php" class="enlacefiltro"><h3 class="filtro"><img src="ico/computer-mouse.png" id="raton" class="icofiltro"></h3></a>
+  <a href="subcascos.php" class="enlacefiltro"><h3 class="filtro"><img src="ico/headphone.png" id="cascos" class="icofiltro"></h3></a>
+  <a href="subhome.php" class="enlacefiltro"><h3 class="filtro"><img src="ico/home.png" id="home" class="icofiltro"></h3></a>
+  <a href="subteclados.php" class="enlacefiltro"><h3 class="filtro"><img src="ico/keyboard.png" id="teclado" class="icofiltro"></h3></a>
 </div>
+
 <div class="productos">
-            <?php foreach ($productos as $producto): ?>
-              <a href="subtienda.php?id=<?= $producto['_id'] ?>" class="enlacesubtienda">
-                    <div class="card producto">
-                        <img class="card-img-top" src="<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>">
-                        <div class="card-body text-center">
-                            <h5 class="card-title"><?= htmlspecialchars($producto['nombre']) ?></h5>
-                            <p class="card-text text-muted"><?= htmlspecialchars($producto['descripcion']) ?></p>
-                            <h6 class="precio">$<?= number_format(floatval($producto['precio']), 2) ?></h6>
-                        </div>
-                    </div>
-                    </a>
-            <?php endforeach; ?>
+    <?php foreach ($productos as $producto): ?>
+        <a href="subtienda.php?id=<?= $producto['_id'] ?>" class="enlacesubtienda">
+            <div class="card producto">
+                <img class="card-img-top" src="<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>">
+                <div class="card-body text-center">
+                    <h5 class="card-title"><?= htmlspecialchars($producto['nombre']) ?></h5>
+                    <p class="card-text text-muted"><?= htmlspecialchars($producto['descripcion']) ?></p>
+                    <h6 class="precio">$<?= number_format(floatval($producto['precio']), 2) ?></h6>
+                </div>
+            </div>
+        </a>
+    <?php endforeach; ?>
 </div>
 
 <footer class="text-center text-white" style="background-color: #000000">
