@@ -269,32 +269,62 @@ background-color: rgb(255, 120, 120);
 }
 /*ADMIN -------PEDIDOS----------------*/
 
-.contenedorpedidos{
-display: grid;
-grid-template-columns: repeat(1,1fr);
+.contenedorpedidos {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 90%;
+    margin: auto;
+    padding: 20px;
 }
-.pedido{
-width: 100%;
-background-color: white;
-margin: 1%;
-display: flex;
-}
-.fotoped{
-width: 20%;
-}
-.titped{
 
+.pedido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out;
 }
-.cantidadped{
 
+.pedido:hover {
+    transform: scale(1.02);
 }
-.nombreped{
 
+.fotoped {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
 }
-.btn.btn-danger.mt-3.cancelar{
-width: 100%;
-text-align: center;
+
+.titped, .cantidadped, .nombreped {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+    text-align: center;
 }
+
+.cantidadped {
+    font-weight: bold;
+    color: #dc3545;
+}
+
+.nombreped {
+    font-style: italic;
+    color: #6c757d;
+}
+
+.cancelar {
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.cancelar:hover {
+    background-color: #c82333;
+}
+
 /*productos*/
 .container.mt-5.gestion{
     display: flex;
@@ -388,6 +418,7 @@ background-color: red !important;
 color: white;
 }
 /*CESTAAAA ------------------!!!!!*/
+
 .carrito{
     text-align: center;
     border-bottom:  solid red;

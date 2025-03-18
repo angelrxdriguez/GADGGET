@@ -5,9 +5,10 @@ require 'veradmin.php';
 $uri = "mongodb+srv://angelrp:abc123.@cluster0.76po7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 $client = new MongoDB\Client($uri);
 $database = $client->gadgget; 
-$collection = $database->productos; 
+$collection = $database->pedidos;
 
-$productos = $collection->find();
+$pedidos = $collection->find();
+
 ?>
 
 <!DOCTYPE html>
@@ -57,13 +58,13 @@ $productos = $collection->find();
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="cancelarPedido">¿Estás seguro de que deseas cancelar el Pedido</h5>
+                <h5 class="modal-title">¿Estás seguro de que deseas cancelar el Pedido?</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>El usuario no recibirá el pedido</p>
+                <p>El usuario no recibirá el pedido.</p>
                 <form id="borrarForm" action="cancelarpedido.php" method="POST">
-                    <input type="hidden" name="id" id="productoId">
+                    <input type="hidden" name="id" id="pedidoId">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-danger">Cancelar Pedido</button>
@@ -73,6 +74,70 @@ $productos = $collection->find();
         </div>
     </div>
 </div>
+
+<div class="contenedorpedidos">
+    <?php foreach ($pedidos as $pedido): ?>
+        <div class="pedido">
+            <h3 class="nombreped">De99: <?= htmlspecialchars($pedido['usuario']) ?></h3>
+
+            <?php if (isset($pedido['productos']) && is_array($pedido['productos'])): ?>
+                <?php foreach ($pedido['productos'] as $producto): ?>
+                    <div class="producto">
+                        <?php
+                        // Obtener detalles del producto
+                        $producto_id = isset($producto['producto_id']) ? $producto['producto_id'] : null;
+                        $cantidad = isset($producto['cantidad']) ? $producto['cantidad'] : 'Cantidad desconocida';
+
+                        // Comprobar si el producto_id es válido
+                        if ($producto_id) {
+                            // Realizar la consulta para obtener el producto utilizando el ObjectId
+                            try {
+                                $producto_id_obj = new MongoDB\BSON\ObjectId($producto_id);
+                                $producto_data = $database->productos->findOne([
+                                    '_id' => $producto_id_obj
+                                ]);
+                            } catch (Exception $e) {
+                                echo "Error al obtener el producto: " . $e->getMessage();
+                                $producto_data = null;
+                            }
+
+                            // Verificar si se encontraron datos del producto
+                            if ($producto_data) {
+                                $nombre_producto = isset($producto_data['nombre']) ? $producto_data['nombre'] : 'Producto no encontrado';
+                                $imagen_producto = isset($producto_data['imagen']) ? $producto_data['imagen'] : 'img/default.jpg';
+                            } else {
+                                $nombre_producto = 'Producto no encontrado';
+                                $imagen_producto = 'img/default.jpg';
+                            }
+                        } else {
+                            $nombre_producto = 'ID de producto no válido';
+                            $imagen_producto = 'img/default.jpg';
+                        }
+
+                        // Depuración: Verificar que el producto_id y la consulta están funcionando
+                        var_dump($producto_id); // Esto te ayudará a ver los valores de producto_id en el pedido
+                        var_dump($producto_data); // Esto te permitirá ver la respuesta de la consulta
+
+                        ?>
+
+                        <!-- Mostrar información del producto -->
+                        <img src="<?= htmlspecialchars($imagen_producto) ?>" class="fotoped" alt="<?= htmlspecialchars($nombre_producto) ?>">
+                        <h3 class="titped"><?= htmlspecialchars($nombre_producto) ?></h3>
+                        <h3 class="cantidadped">Cantidad: <?= htmlspecialchars($cantidad) ?></h3>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+            <button class="btn btn-danger mt-3 cancelar" data-bs-toggle="modal" data-bs-target="#cancelarPedido" 
+                data-id="<?= $pedido['_id'] ?>">
+                CANCELAR PEDIDO
+            </button>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+
+
     <footer class="text-center text-white">
         <div class="container">
             <section class="mt-5">
