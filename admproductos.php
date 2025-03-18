@@ -113,7 +113,6 @@ $productos = $collection->find();
             </div>
             <div class="modal-body">
                 <p>Este producto será eliminado permanentemente.</p>
-                <!-- Formulario para borrar el producto -->
                 <form id="borrarForm" action="borrarproducto.php" method="POST">
                     <input type="hidden" name="id" id="productoId">
                     <div class="modal-footer">

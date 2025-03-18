@@ -255,8 +255,46 @@ background-color: rgb(255, 120, 120);
 .iconoopcion{
     width: 25%;
 }
+.opcionp{
+    color: white;
+    text-align: center;
+    background-color: rgb(32, 32, 32);
+    padding: 3%;
+    border-radius: 25px;
+    width: 50%;
+    margin-left: 25%;
+}
+.opcionp:hover{
+    background-color: gray;
+}
+/*ADMIN -------PEDIDOS----------------*/
 
-/*ADMIN ------------------------------*/
+.contenedorpedidos{
+display: grid;
+grid-template-columns: repeat(1,1fr);
+}
+.pedido{
+width: 100%;
+background-color: white;
+margin: 1%;
+display: flex;
+}
+.fotoped{
+width: 20%;
+}
+.titped{
+
+}
+.cantidadped{
+
+}
+.nombreped{
+
+}
+.btn.btn-danger.mt-3.cancelar{
+width: 100%;
+text-align: center;
+}
 /*productos*/
 .container.mt-5.gestion{
     display: flex;
@@ -400,6 +438,17 @@ margin-top: 15%;
     color: white;
     transition: 0.4s;
 }
+.npa{
+    color: #ffffff;
+}
+.npa:hover{
+    color: red;
+}
+.np{
+    text-align: center;
+    color: white;
+}
+/**/
 /*footer*/
 footer{
     margin-top: 20%;

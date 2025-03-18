@@ -109,7 +109,7 @@ if (!$usuario || !isset($usuario['cesta']) || empty($usuario['cesta'])) {
 
 <div class="contenedorcesta">
     <?php if (empty($productos)): ?>
-        <p>No hay productos en el carrito.</p>
+        <p class="np">No hay productos en el carrito <a href="tienda.php" class="npa">!Echa un Vistazo!</a></p>
     <?php else: ?>
         <?php foreach ($productos as $producto): ?>
             <div class="cesta">

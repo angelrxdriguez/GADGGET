@@ -66,7 +66,14 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
                 <img src="ico/clipboard.png" alt="" class="iconoopcion">
                 <h1 class="h1opcion">STOCK</h1>
             </div>
+    </a>
+
     </div>
+    <a href="admped.php" class="enlaceopcion">
+        <div class="opcionp">
+            <img src="ico/fast-delivery.png" alt="" class="iconoopcion">
+            <h1 class="h1opcion">PEDIDO</h1>
+        </div>
     </a>
     <footer class="text-center text-white" style="background-color: #000000">
         <div class="container">

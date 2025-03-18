@@ -1,6 +1,17 @@
+<?php
+require 'vendor/autoload.php';
+require 'veradmin.php'; 
+
+$uri = "mongodb+srv://angelrp:abc123.@cluster0.76po7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+$client = new MongoDB\Client($uri);
+$database = $client->gadgget; 
+$collection = $database->productos; 
+
+$productos = $collection->find();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,55 +36,44 @@
             <a class="navbar-brand" href="index.php">
                 <img src="logos/gadget.jpg" alt="Logo" height="90" class="logo">
             </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="admin.php">ADMINISTRADOR</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="adm">+PRODUCTOS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="conciertos.html">-PRODUCTOS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="adm+stock.php">+ STOCK</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="adm-stock.php">- STOCK</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="admin.php">ADMINISTRADOR</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="admproductos.php">PRODUCTOS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admstock.php">STOCK</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="opciones">
-        <a href="admproductos.php" class="enlaceopcion">
-            <div class="opcion">
-                <img src="ico/product.png" alt="" class="iconoopcion">
-                <h1 class="h1opcion">PRODUCTOS</h1>
-            </div>
-        </a>
-        <a href="admstock.html" class="enlaceopcion">
-            <div class="opcion">
-                <img src="ico/clipboard.png" alt="" class="iconoopcion">
-                <h1 class="h1opcion">STOCK</h1>
-            </div>
-        </a>
+
+    <div class="container mt-5 gestion text-center">
+        <h2 class="text-white">Gestión de Pedidos</h2>
     </div>
-    <a href="admstock.html" class="enlaceopcion">
-        <div class="opcionp">
-            <img src="ico/fast-delivery.png" alt="" class="iconoopcion">
-            <h1 class="h1opcion">PEDIDO</h1>
+
+    <div class="modal fade" id="cancelarPedido" tabindex="-1" aria-labelledby="cancelarPedido" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelarPedido">¿Estás seguro de que deseas cancelar el Pedido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>El usuario no recibirá el pedido</p>
+                <form id="borrarForm" action="cancelarpedido.php" method="POST">
+                    <input type="hidden" name="id" id="productoId">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-danger">Cancelar Pedido</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </a>
-    <footer class="text-center text-white" style="background-color: #000000">
+    </div>
+</div>
+    <footer class="text-center text-white">
         <div class="container">
             <section class="mt-5">
                 <div class="row text-center d-flex justify-content-center pt-5">
@@ -133,9 +133,9 @@
             <a class="text-white" href="contacto.html">GADGGET</a>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="src/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
+</body>
 </html>
