@@ -13,13 +13,16 @@ $(document).ready(function() {
         var productoId = $(this).data('id');
         $('#productoIdRestar').val(productoId);
     });
-    $("body").prepend('<div id="alerta-carrito" class="alert alert-light">Añadido al carrito</div>');
+    $(".añadircarrito").click(function (event) {
+        event.preventDefault(); // Evita el envío del formulario
 
-    $(".btn.carrito").click(function () {
+        let form = $(this).closest("form"); // Encuentra el formulario al que pertenece el botón
+
         $("#alerta-carrito").removeClass("d-none").fadeIn();
 
         setTimeout(() => {
             $("#alerta-carrito").fadeOut();
+            form.submit(); // Envía el formulario después de la animación
         }, 1500);
     });
 });

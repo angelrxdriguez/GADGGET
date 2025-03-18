@@ -90,6 +90,10 @@ try {
         </div>
     </div>
 </nav>
+<div id="alerta-carrito" class="alert alert-light d-none" style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: none;">
+    Añadido al carrito
+</div>
+
 <div class="contenedorsub">
     <div class="fototit">
         <h1 class="titprod"><?= htmlspecialchars($producto['nombre']) ?></h1>

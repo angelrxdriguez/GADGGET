@@ -1,54 +1,10 @@
-<?php
-session_start();
-require 'vendor/autoload.php';
-
-use MongoDB\Client;
-use MongoDB\BSON\ObjectId;
-
-$uri = "mongodb+srv://angelrp:abc123.@cluster0.76po7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-$client = new Client($uri);
-$database = $client->gadgget;
-$usuariosCollection = $database->usuarios;
-$productosCollection = $database->productos;
-
-if (!isset($_SESSION['usuario'])) {
-    echo "<script>alert('Debes iniciar sesión para ver el carrito.'); window.location.href='login.html';</script>";
-    exit();
-}
-
-$usuarioNombre = $_SESSION['usuario'];
-$usuario = $usuariosCollection->findOne(['nombre' => $usuarioNombre]);
-
-if (!$usuario || !isset($usuario['cesta']) || empty($usuario['cesta'])) {
-    $productos = [];
-} else {
-    // Obtener IDs de los productos en la cesta
-    $cesta = (array) $usuario['cesta']; // Convertimos BSONArray a un array PHP
-    $productoIds = array_map(fn($item) => new ObjectId($item['producto_id']), $cesta);
-    
-
-    // Buscar productos en la base de datos
-    $productosCursor = $productosCollection->find(['_id' => ['$in' => $productoIds]]);
-    $productos = iterator_to_array($productosCursor);
-
-    // Agregar la cantidad de cada producto
-    foreach ($productos as $producto) {
-        foreach ($usuario['cesta'] as $item) {
-            if ($item['producto_id'] == (string)$producto['_id']) {
-                $producto['cantidad'] = $item['cantidad'];
-                break;
-            }
-        }
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito</title>
+    <title>INDEX</title>
     <link rel="icon" type="image/png" href="fotos/enelpueblo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,24 +61,26 @@ if (!$usuario || !isset($usuario['cesta']) || empty($usuario['cesta'])) {
         </div>
     </div>
 </nav>
-<h1 class="carrito">CESTA</h1>
+
+<h1 class="carrito">CARRITO</h1>
 
 <div class="contenedorcesta">
-    <?php if (empty($productos)): ?>
-        <p>No hay productos en el carrito.</p>
-    <?php else: ?>
-        <?php foreach ($productos as $producto): ?>
-            <div class="cesta">
-                <img src="<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>" class="fotocesta">
-                <h3 class="titcesta"><?= htmlspecialchars($producto['nombre']) ?></h3>
-                <p class="cantidadcesta">Cantidad: <?= $producto['cantidad'] ?></p>
-            </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
+    <div class="cesta">
+        <img src="shop/cascos.png" alt="" srcset="" class="fotocesta">
+        <h3 class="titcesta">CASCOS GAMER MUY LOCOS</h3>
+        <p class="cantidadcesta"> 3 </p>
+    </div>
+    <div class="cesta">
+        <img src="shop/cascos.png" alt="" srcset="" class="fotocesta">
+        <h3 class="titcesta">CASCOS GAMER MUY LOCOS</h3>
+        <p class="cantidadcesta"> 3 </p>
+    </div>
+    <div class="cesta">
+        <img src="shop/cascos.png" alt="" srcset="" class="fotocesta">
+        <h3 class="titcesta">CASCOS GAMER MUY LOCOS</h3>
+        <p class="cantidadcesta"> 3 </p>
+    </div>
 </div>
-<form action="comprar.php" method="POST">
-    <input type="hidden" name="id" value="<?= $producto['_id'] ?>">
-<button type="submit" class="btn comprar">COMPRAR</button>
-</form>
+
 </body>
 </html>
