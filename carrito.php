@@ -109,18 +109,28 @@ if (!$usuario || !isset($usuario['cesta']) || empty($usuario['cesta'])) {
 
 <div class="contenedorcesta">
     <?php if (empty($productos)): ?>
-        <p class="np">No hay productos en el carrito <a href="tienda.php" class="npa">!Echa un Vistazo!</a></p>
+        <p class="np">No hay productos en el carrito <a href="tienda.php" class="npa">¡Echa un vistazo!</a></p>
     <?php else: ?>
-        <?php foreach ($productos as $producto): ?>
+        <?php foreach ($productos as $producto): 
+            $precio = $producto['precio'];
+            $cantidad = $producto['cantidad'];
+            $precioFinal = $precio * $cantidad;
+        ?>
             <div class="cesta">
                 <img src="<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>" class="fotocesta">
-                <h3 class="titcesta"><?= htmlspecialchars($producto['nombre']) ?></h3>
-                <p class="cantidadcesta">Cantidad: <?= $producto['cantidad'] ?></p>
+                
+                <div class="info-producto">
+                    <h3 class="titcesta"><?= htmlspecialchars($producto['nombre']) ?></h3>
+                    <h3 class="preciocesta"><?= number_format($precio, 2) ?>€</h3>
+                    <p class="cantidadcesta">Cantidad: <?= $cantidad ?></p>
+                    <h3 class="finalcesta">Total: <?= number_format($precioFinal, 2) ?>€</h3>
+                </div>
             </div>
         <?php endforeach; ?>
     <?php endif; ?>
 </div>
 <form action="comprar.php" method="POST">
+        <!--no lo uso-->
     <input type="hidden" name="id" value="<?= $producto['_id'] ?>">
 <button type="submit" class="btn comprar">COMPRAR</button>
 </form>

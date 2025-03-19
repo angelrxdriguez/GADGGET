@@ -6,6 +6,10 @@ body{
     font-style: normal !important;
     background-color: #000000 !important;
 }
+.tit{
+    color: white;
+    text-align: center;
+}
 .alert{
     position: fixed;
      top: 20px; right:
@@ -468,40 +472,72 @@ color: white;
 }
 /*CESTAAAA ------------------!!!!!*/
 
-.carrito{
+.carrito {
     text-align: center;
-    border-bottom:  solid red;
+    border-bottom: 3px solid red;
     color: white;
+    font-size: 28px;
+    padding: 15px;
 }
-.contenedorcesta{
-display: grid;
-grid-template-columns: repeat(1,1fr);
-background-color: #333333;
-}
-.cesta{
-width: 50%;
-margin-left: 25%;
-background-color: #ffffff;
-margin-top: 1%;
-margin-bottom: 1%;
-display: grid;
-grid-template-columns: repeat(3,1fr);
-border-radius: 20px;
-}
-.fotocesta{
-width: 50%;
-}
-.cantidadcesta{
-margin-top: 15%;
-width: 100%;
-text-align: end;
-padding-right: 20%;
-font-size: 150%;
 
+/* Contenedor del carrito */
+.contenedorcesta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #222;
+    padding: 20px;
 }
-.titcesta{
-margin-top: 15%;
+
+/* Estilo de cada producto en el carrito */
+.cesta {
+    width: 90%;
+    max-width: 600px;
+    background: #fff;
+    margin: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
 }
+
+.cesta:hover {
+    transform: scale(1.03);
+}
+
+.fotocesta {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.titcesta {
+    font-weight: bold;
+    margin-right:30%;
+    color: #333;
+}
+
+.preciocesta {
+    font-weight: bold;
+    color: #ff4d4d;
+}
+
+.cantidadcesta {
+    color: #666;
+    margin: 5%;
+}
+
+.finalcesta {
+    font-size: 20px;
+    font-weight: bold;
+    color: #bb0000;
+}
+
 .btn.comprar{
     width: 50%;
     margin-left: 25%;
@@ -528,7 +564,10 @@ margin-top: 15%;
     text-align: center;
     color: white;
 }
-/**/
+
+
+.volver:hover {
+}
 /*footer*/
 footer{
     margin-top: 20%;
