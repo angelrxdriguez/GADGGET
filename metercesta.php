@@ -76,5 +76,5 @@ $productosCollection->updateOne(
     ['$inc' => ['stock' => -1]]
 );
 
-echo "<script>alert('Añadido al carrito'); window.location.href='tienda.php';</script>";
+echo "<script>window.location.href='tienda.php';</script>";
 ?>

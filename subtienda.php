@@ -90,28 +90,27 @@ try {
         </div>
     </div>
 </nav>
-<div id="alerta-carrito" class="alert alert-light d-none" style="position: fixed; top: 20px; right: 20px; z-index: 9999; display: none;">
+<div id="alerta-carrito" class="alert alert-light" >
     Añadido al carrito
 </div>
 
 <div class="contenedorsub">
     <div class="fototit">
         <h1 class="titprod"><?= htmlspecialchars($producto['nombre']) ?></h1>
-            <img src="<?= htmlspecialchars($producto['imagen']) ?>" alt="cas" class="fotoprod">
-            
-        </div>
-        <div class="datos">
+        <img src="<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>" class="fotoprod">
+    </div>
+    
+    <div class="subdatos">
         <h4 class="descripcionprod"><?= htmlspecialchars($producto['descripcion']) ?></h4>
-           <div class="subdatos">
-            <h3 class="precioprod"><?= number_format(floatval($producto['precio']), 2) ?></h3>
-            <form action="metercesta.php" method="POST">
-    <input type="hidden" name="id" value="<?= $producto['_id'] ?>">
-    <button type="submit" class="añadircarrito">Añadir Carrito</button>
-</form>
-
-        </div>
-        </div>
+        <h3 class="precioprod"><?= number_format(floatval($producto['precio']), 2) ?></h3>
+        <form action="metercesta.php" method="POST">
+            <input type="hidden" name="id" value="<?= $producto['_id'] ?>">
+            <button type="submit" class="añadircarrito">Carrito</button>
+        </form>
+    </div>
 </div>
+
+
 <h1 class="relacionados">RELACIONADOS</h1>
 <div class="productos">
     <?php if (!empty($productosRelacionados)): ?>
@@ -131,5 +130,7 @@ try {
         <p>No hay productos relacionados.</p>
     <?php endif; ?>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="src/jquery.js"></script>
 </body>
 </html>

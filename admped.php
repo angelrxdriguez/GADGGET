@@ -75,14 +75,33 @@ $pedidos = $collection_pedidos->find();
                 <button class="btn btn-danger cancelar" data-bs-toggle="modal" data-bs-target="#cancelarModal" data-id="<?= $pedido['_id'] ?>">
                     CANCELAR PEDIDO
                 </button>
-                <button class="btn btn-success aceptar" data-bs-toggle="modal" data-bs-target="#cancelarModal" data-id="<?= $pedido['_id'] ?>">
+                <button class="btn btn-success aceptar" data-bs-toggle="modal" data-bs-target="#aceptarModal" data-id="<?= $pedido['_id'] ?>">
                     ACEPTAR PEDIDO
                 </button>
             </div>
         </div>
     <?php endforeach; ?>
 </div>
-
+<div class="modal fade" id="cancelarModal" tabindex="-1" aria-labelledby="cancelarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelarModalLabel">¿Estás seguro de que deseas cancelar este pedido?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Este pedido no se tramitará</p>
+                <form id="cancelarForm" action="cancelarpedido.php" method="POST">
+                    <input type="hidden" name="id" id="pedidoId">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-danger">Cancelar pedido</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -22,7 +22,7 @@ $(document).ready(function() {
 
         setTimeout(() => {
             $("#alerta-carrito").fadeOut();
-            form.submit(); // Envía el formulario después de la animación
+            form.submit(); 
         }, 1500);
     });
 });
