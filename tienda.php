@@ -50,7 +50,7 @@ $productos = $collection->find();
                   <a class="nav-link" href="conciertos.html">GADGGET</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="conciertos.html">CONTACTANOS</a>
+                <a class="nav-link" href="pedidos.php">PEDIDOS</a>
             </li>
                 <li class="nav-item">
                     <a class="nav-link" href="carrito.php">

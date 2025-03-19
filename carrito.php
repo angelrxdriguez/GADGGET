@@ -83,7 +83,7 @@ if (!$usuario || !isset($usuario['cesta']) || empty($usuario['cesta'])) {
                   <a class="nav-link" href="conciertos.html">GADGGET</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="conciertos.html">CONTACTANOS</a>
+                <a class="nav-link" href="pedidos.php">PEDIDOS</a>
             </li>
                 <li class="nav-item">
                     <a class="nav-link" href="carrito.php">
@@ -124,5 +124,7 @@ if (!$usuario || !isset($usuario['cesta']) || empty($usuario['cesta'])) {
     <input type="hidden" name="id" value="<?= $producto['_id'] ?>">
 <button type="submit" class="btn comprar">COMPRAR</button>
 </form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </body>
 </html>

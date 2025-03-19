@@ -49,16 +49,16 @@ session_start();
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="tienda.html">TIENDA</a>
+                        <a class="nav-link" href="tienda.php">TIENDA</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="conciertos.html">GADGGET</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="conciertos.html">CONTACTANOS</a>
-                    </li>
+                <a class="nav-link" href="pedidos.php">PEDIDOS</a>
+            </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="carrito.html">
+                        <a class="nav-link" href="carrito.php">
                             <img src="ico/carrito-de-compras (1).png" alt="Carrito" height="35" class="nav-icon">
                         </a>
                     </li>

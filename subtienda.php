@@ -74,7 +74,7 @@ try {
                   <a class="nav-link" href="conciertos.html">GADGGET</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="conciertos.html">CONTACTANOS</a>
+                <a class="nav-link" href="pedidos.php">PEDIDOS</a>
             </li>
                 <li class="nav-item">
                     <a class="nav-link" href="carrito.php">
@@ -111,7 +111,7 @@ try {
 </div>
 
 
-<h1 class="relacionados">RELACIONADOS</h1>
+<h1 class="relacionados">MÁS</h1>
 <div class="productos">
     <?php if (!empty($productosRelacionados)): ?>
         <?php foreach ($productosRelacionados as $relacionado): ?>
@@ -130,6 +130,8 @@ try {
         <p>No hay productos relacionados.</p>
     <?php endif; ?>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="src/jquery.js"></script>
 </body>
