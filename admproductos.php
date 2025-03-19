@@ -46,6 +46,7 @@ $productos = $collection->find();
                     <li class="nav-item"><a class="nav-link" href="admin.php">ADMINISTRADOR</a></li>
                     <li class="nav-item"><a class="nav-link active" href="admproductos.php">PRODUCTOS</a></li>
                     <li class="nav-item"><a class="nav-link" href="admstock.php">STOCK</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admped.php">PEDIDOS</a></li>
                 </ul>
             </div>
         </div>

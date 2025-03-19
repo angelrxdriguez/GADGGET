@@ -76,7 +76,6 @@ session_start();
             <img src="ico/acceso (2).png" alt="" srcset="" class="fotouser">
         </div>
         <div class="datosuser">
-            <h4 class="correouser">correo@ejemplo.com</h4>
             <button type="submit" class="salir" onclick="window.location.href='cerrarsesion.php';">SALIR</button>
 
         </div>

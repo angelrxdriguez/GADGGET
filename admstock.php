@@ -46,6 +46,7 @@ $productos = $collection->find();
                     <li class="nav-item"><a class="nav-link" href="admin.php">ADMINISTRADOR</a></li>
                     <li class="nav-item"><a class="nav-link" href="admproductos.php">PRODUCTOS</a></li>
                     <li class="nav-item"><a class="nav-link active" href="admstock.php">STOCK</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admped.php">PEDIDOS</a></li>
                 </ul>
             </div>
         </div>
@@ -59,17 +60,21 @@ $productos = $collection->find();
     <div class="row">
         <?php foreach ($productos as $producto): ?>
             <div class="productostock">
-                <p class="text-muted sid">ID: <?= htmlspecialchars($producto['_id']) ?></p>
-                <h5 class="snombre"><?= htmlspecialchars($producto['nombre']) ?></h5>
-                <h5 class="sstock">STOCK: <?= htmlspecialchars($producto['stock']) ?></h5>
-                <div class="botonesstock d-flex justify-content-end">
-                    <button class="btn btn-success mt-3 sumarstock-btn" data-bs-toggle="modal" data-bs-target="#sumarStockModal" data-id="<?= $producto['_id'] ?>">+ STOCK</button>
-                    <button class="btn btn-danger mt-3 restarstock-btn" data-bs-toggle="modal" data-bs-target="#restarStockModal" data-id="<?= $producto['_id'] ?>">- STOCK</button>
+                <img src="<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>">
+                <div class="producto-info">
+                    <p class="text-muted sid">ID: <?= htmlspecialchars($producto['_id']) ?></p>
+                    <h5 class="snombre"><?= htmlspecialchars($producto['nombre']) ?></h5>
+                    <h5 class="sstock">STOCK: <?= htmlspecialchars($producto['stock']) ?></h5>
+                </div>
+                <div class="botonesstock">
+                    <button class="btn btn-success sumarstock-btn" data-bs-toggle="modal" data-bs-target="#sumarStockModal" data-id="<?= $producto['_id'] ?>">+ STOCK</button>
+                    <button class="btn btn-danger restarstock-btn" data-bs-toggle="modal" data-bs-target="#restarStockModal" data-id="<?= $producto['_id'] ?>">- STOCK</button>
                 </div>
             </div>
         <?php endforeach; ?>
     </div>
 </div>
+
 
 <div class="modal fade" id="sumarStockModal" tabindex="-1" aria-labelledby="sumarStockModalLabel" aria-hidden="true">
     <div class="modal-dialog">

@@ -268,11 +268,10 @@ background-color: rgb(255, 120, 120);
     background-color: gray;
 }
 /*ADMIN -------PEDIDOS----------------*/
-
 .contenedorpedidos {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
     width: 90%;
     margin: auto;
     padding: 20px;
@@ -280,16 +279,24 @@ background-color: rgb(255, 120, 120);
 
 .pedido {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #f8f9fa;
-    padding: 15px;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #e0e0e0;
+    padding: 20px;
     border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
 }
 
-.pedido:hover {
-    transform: scale(1.02);
+
+.datos {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .fotoped {
@@ -299,11 +306,11 @@ background-color: rgb(255, 120, 120);
     border: 2px solid #ddd;
 }
 
-.titped, .cantidadped, .nombreped {
+.titped {
     font-size: 18px;
+    font-weight: bold;
     color: #333;
-    margin: 0;
-    text-align: center;
+    flex-grow: 1;
 }
 
 .cantidadped {
@@ -311,19 +318,31 @@ background-color: rgb(255, 120, 120);
     color: #dc3545;
 }
 
-.nombreped {
-    font-style: italic;
-    color: #6c757d;
-}
-
 .cancelar {
-    font-size: 14px;
-    border-radius: 5px;
+    color: white;
+    border: none;
 }
 
 .cancelar:hover {
     background-color: #c82333;
 }
+
+.aceptar {
+    color: white;
+    border: none;
+}
+
+.aceptar:hover {
+    background-color: #218838;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
 
 /*productos*/
 .container.mt-5.gestion{
@@ -331,56 +350,66 @@ background-color: rgb(255, 120, 120);
     flex-direction: column;
     background-color: rgb(78, 78, 78);
     padding: 2%;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+    border-radius: 20px;
 }
 .productos.adm{
     background-color: rgb(65, 65, 65);
     padding-top: 2%;
 }
 /*stock*/
-.productosstock{
-display: flex;
-flex-direction: column;
-align-items: center;
-background-color: rgb(65, 65, 65);
+.productosstock {
+    max-width: 600px;
+    margin: 20px auto;
 }
-.productostock{
-    width: 100%;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    text-align: left;
-    margin-top: 2%;
-}
-.sid{
 
-margin-right: 1%;
-margin-left: 1%;
-margin-top: 1%;
-padding: 1%;
-background-color: azure;
-border-radius: 25px;
+.productostock {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
 }
-.snombre{
-    
-    margin-right: 1%;
-    margin-left: 1%;
-    padding: 1%;
+
+.productostock img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
 }
-.sstock{
-    
-    margin-right: 1%;
-    margin-left: 1%;
-    padding: 1%;
+
+.producto-info {
+    flex-grow: 1;
 }
-.botonesstock{
-    display: flex;        
-    justify-content: flex-end; 
-    width: 100%;        
-    margin-bottom: 1%;
-    gap: 2%;
+
+.snombre {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
 }
+
+.sstock {
+    font-size: 16px;
+    color: #00a326;
+    margin-bottom: 8px;
+}
+
+.sid {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.botonesstock {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
 /*usuario apartado*/
 .contenedorusuario{
 text-align: center;

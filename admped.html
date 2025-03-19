@@ -33,6 +33,7 @@
                     <li class="nav-item"><a class="nav-link" href="admin.php">ADMINISTRADOR</a></li>
                     <li class="nav-item"><a class="nav-link active" href="admproductos.php">PRODUCTOS</a></li>
                     <li class="nav-item"><a class="nav-link" href="admstock.php">STOCK</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admstock.php">PEDIDOS</a></li>
                 </ul>
             </div>
         </div>
@@ -64,30 +65,29 @@
 </div>
 <div class="contenedorpedidos">
     <div class="pedido">
-        <img src="shop/cascos.png" class="fotoped" alt="" srcset="">
-        <h3 class="titped">Cascos Gamer Razer Pro</h3>
-        <h3 class="cantidadped">6</h3>
-        <h3 class="nombreped">De : NOMBRE</h3>
+        <h4 class="text-muted">ID:67d99fcec52a2716940a61d0</h4>
+        <div class="datos">
+            <img src="shop/cascos2.png" class="fotoped" alt="" srcset="">
+            <h3 class="titped">Cascos Gamer Razer Pro</h3>
+            <h3 class="cantidadped">6</h3>
+        </div>
+        <div class="datos">
+            <img src="shop/cascos.png" class="fotoped" alt="" srcset="">
+            <h3 class="titped">Cascos Gamer Razer Pro</h3>
+            <h3 class="cantidadped">6</h3>
+        </div>
+        <div class="datos">
+            <img src="shop/cascos.png" class="fotoped" alt="" srcset="">
+            <h3 class="titped">Cascos Gamer Razer Pro</h3>
+            <h3 class="cantidadped">6</h3>
+          
+           
+        </div>
         <button class="btn btn-danger mt-3 cancelar" data-bs-toggle="modal" data-bs-target="#cancelarModal" data-id="<?= $producto['_id'] ?>">
             CANCELAR PEDIDO
         </button>
-    </div>
-    <div class="pedido">
-        <img src="shop/cascos2.png" class="fotoped" alt="" srcset="">
-        <h3 class="titped">Cascos Gamer Razer Pro</h3>
-        <h3 class="cantidadped">6</h3>
-        <h3 class="nombreped">De : NOMBRE</h3>
-        <button class="btn btn-danger mt-3 cancelar" data-bs-toggle="modal" data-bs-target="#cancelarModal" data-id="<?= $producto['_id'] ?>">
-            CANCELAR PEDIDO
-        </button>
-    </div>
-    <div class="pedido">
-        <img src="shop/cascos.png" class="fotoped" alt="" srcset="">
-        <h3 class="titped">Cascos Gamer Razer Pro</h3>
-        <h3 class="cantidadped">6</h3>
-        <h3 class="nombreped">De : NOMBRE</h3>
-        <button class="btn btn-danger mt-3 cancelar" data-bs-toggle="modal" data-bs-target="#cancelarModal" data-id="<?= $producto['_id'] ?>">
-            CANCELAR PEDIDO
+        <button class="btn btn-success mt-3 cancelar" data-bs-toggle="modal" data-bs-target="#cancelarModal" data-id="<?= $producto['_id'] ?>">
+            ACEPTAR PEDIDO
         </button>
     </div>
 </div>

@@ -50,6 +50,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
                     <li class="nav-item">
                         <a class="nav-link" href="admstock.php">STOCK</a>
                     </li>
+                    <li class="nav-item"><a class="nav-link" href="admped.php">PEDIDOS</a></li>
                 </ul>
             </div>
         </div>
