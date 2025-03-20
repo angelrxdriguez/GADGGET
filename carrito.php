@@ -12,7 +12,7 @@ $usuariosCollection = $database->usuarios;
 $productosCollection = $database->productos;
 
 if (!isset($_SESSION['usuario'])) {
-    echo "<script>alert('Debes iniciar sesión para ver el carrito.'); window.location.href='login.html';</script>";
+    echo "<script>alert('Inicia sesion para ver el carrito.'); window.location.href='login.html';</script>";
     exit();
 }
 

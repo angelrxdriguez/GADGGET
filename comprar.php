@@ -18,7 +18,6 @@ if (!isset($_SESSION['usuario'])) {
 
 $usuarioNombre = $_SESSION['usuario'];
 
-// Obtener usuario y su cesta
 $usuario = $usuariosCollection->findOne(['nombre' => $usuarioNombre]);
 
 if (!$usuario || empty($usuario['cesta'])) {
@@ -26,16 +25,13 @@ if (!$usuario || empty($usuario['cesta'])) {
     exit();
 }
 
-// Crear un pedido con los productos de la cesta
 $nuevoPedido = [
     'usuario' => $usuarioNombre,
     'productos' => $usuario['cesta'],
 ];
 
-// Insertar el pedido en la colección pedidos
 $pedidosCollection->insertOne($nuevoPedido);
 
-// Vaciar la cesta del usuario
 $usuariosCollection->updateOne(
     ['nombre' => $usuarioNombre],
     ['$set' => ['cesta' => []]]

@@ -24,21 +24,18 @@ if (!isset($_POST['id'])) {
 $productoId = new ObjectId($_POST['id']);
 $usuarioNombre = $_SESSION['usuario'];
 
-// Obtener el producto y su stock actual
 $producto = $productosCollection->findOne(['_id' => $productoId]);
 
 if (!$producto) {
     echo "<script>alert('Error: Producto no encontrado.'); window.location.href='tienda.php';</script>";
     exit();
 }
-
-// Verificar si hay stock suficiente
+//si hay stock
 if ($producto['stock'] <= 0) {
     echo "<script>alert('Lo sentimos, este producto está agotado.'); window.location.href='tienda.php';</script>";
     exit();
 }
 
-// Buscar usuario y su cesta
 $usuario = $usuariosCollection->findOne(['nombre' => $usuarioNombre]);
 
 if (!$usuario) {
@@ -46,7 +43,6 @@ if (!$usuario) {
     exit();
 }
 
-// Verificar si el producto ya está en la cesta
 $productoEnCesta = false;
 foreach ($usuario['cesta'] as &$item) {
     if ($item['producto_id'] == (string) $productoId) {
@@ -56,7 +52,6 @@ foreach ($usuario['cesta'] as &$item) {
     }
 }
 
-// Si el producto no está en la cesta, agregarlo con cantidad = 1
 if (!$productoEnCesta) {
     $usuario['cesta'][] = [
         'producto_id' => (string) $productoId,
@@ -64,13 +59,11 @@ if (!$productoEnCesta) {
     ];
 }
 
-// Actualizar la cesta en la base de datos
 $usuariosCollection->updateOne(
     ['nombre' => $usuarioNombre],
     ['$set' => ['cesta' => $usuario['cesta']]]
 );
 
-// Reducir el stock del producto en la colección productos
 $productosCollection->updateOne(
     ['_id' => $productoId],
     ['$inc' => ['stock' => -1]]

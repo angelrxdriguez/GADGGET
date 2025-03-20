@@ -16,29 +16,26 @@ if (!isset($_POST['pedido_id'])) {
     exit();
 }
 
-$pedidoId = $_POST['pedido_id']; // Obtener el ID del pedido
+$pedidoId = $_POST['pedido_id']; 
 
-// Buscar el pedido en la base de datos
 $pedido = $pedidosCollection->findOne(['_id' => new ObjectId($pedidoId)]);
 
 if (!$pedido) {
-    echo "<script>alert('Pedido no encontrado.'); window.location.href='admped.php';</script>";
+    echo "<script>alert('no encuentra'); window.location.href='admped.php';</script>";
     exit();
 }
 
-// Devolver el stock de los productos del pedido
-foreach ($pedido['productos'] as $producto) {
+foreach ($pedido['productos'] as $producto) {//==$pedido as $pedidos si sacas coleccion pedidos ???¿
     $productoId = new ObjectId($producto['producto_id']);
     $cantidad = $producto['cantidad'];
 
-    // Aumentar el stock en la base de datos
+//mete stock
     $productosCollection->updateOne(
         ['_id' => $productoId],
         ['$inc' => ['stock' => $cantidad]] // Sumar la cantidad al stock
     );
 }
 
-// Eliminar el pedido de la colección
 $pedidosCollection->deleteOne(['_id' => new ObjectId($pedidoId)]);
 
 echo "<script>alert('Pedido cancelado y stock restablecido.'); window.location.href='admped.php';</script>";

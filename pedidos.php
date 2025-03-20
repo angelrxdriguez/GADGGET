@@ -14,9 +14,8 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-$nombre_usuario = $_SESSION['usuario']; // Aquí almacenas el nombre, pero necesitamos el ID
+$nombre_usuario = $_SESSION['usuario']; 
 
-// Buscar el usuario en la base de datos por su nombre
 $usuario = $collection_usuarios->findOne(['nombre' => $nombre_usuario]);
 
 if (!$usuario) {
@@ -24,7 +23,6 @@ if (!$usuario) {
     exit();
 }
 
-// Obtener los pedidos del usuario
 $pedidos = $collection_pedidos->find(['usuario' => $usuario['nombre']]);
 
 ?>
