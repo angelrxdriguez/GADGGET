@@ -13,15 +13,28 @@ $(document).ready(function() {
         var productoId = $(this).data('id');
         $('#productoIdRestar').val(productoId);
     });
+    //ALERTSSSSS---------
     $(".añadircarrito").click(function (event) {
-        event.preventDefault(); // Evita el envío del formulario
+        event.preventDefault(); 
 
-        let form = $(this).closest("form"); // Encuentra el formulario al que pertenece el botón
+        let form = $(this).closest("form"); 
 
         $("#alerta-carrito").removeClass("d-none").fadeIn();
 
         setTimeout(() => {
             $("#alerta-carrito").fadeOut();
+            form.submit(); 
+        }, 1500);
+    });
+    $(".btn comprar").click(function (event) {
+        event.preventDefault();
+
+        let form = $(this).closest("form"); 
+
+        $("#alerta-comprar").removeClass("d-none").fadeIn();
+
+        setTimeout(() => {
+            $("#alerta-comprar").fadeOut();
             form.submit(); 
         }, 1500);
     });

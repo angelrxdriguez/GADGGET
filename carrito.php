@@ -126,6 +126,9 @@ if (!$usuario || !isset($usuario['cesta']) || empty($usuario['cesta'])) {
         <?php endforeach; ?>
     <?php endif; ?>
 </div>
+<div id="alerta-comprar" class="alert alert-success" >
+    Comprado
+</div>
 <form action="comprar.php" method="POST">
         <!--no lo uso-->
     <input type="hidden" name="id" value="<?= $producto['_id'] ?>">

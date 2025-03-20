@@ -37,5 +37,5 @@ $usuariosCollection->updateOne(
     ['$set' => ['cesta' => []]]
 );
 
-echo "<script>alert('Compra realizada con éxito.'); window.location.href='carrito.php';</script>";
+echo "<script>window.location.href='carrito.php';</script>";
 ?>
