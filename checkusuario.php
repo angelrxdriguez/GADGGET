@@ -24,9 +24,12 @@ if ($user) {
         header('Location: index.php');
         exit();
     } else {
-        echo "<script>alert('Contraseña incorrecta.'); window.location.href='login.html';</script>";
+        header('Location: login.php?error=contra');
+        exit();
     }
 } else {
-    echo "<script>alert('Usuario no encontrado.'); window.location.href='login.html';</script>";
+    header('Location: login.php?error=usuario');
+    exit();
 }
+
 ?>

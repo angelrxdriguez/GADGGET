@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'vendor/autoload.php';
 
 $uri = "mongodb+srv://angelrp:abc123.@cluster0.76po7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -6,9 +7,17 @@ $client = new MongoDB\Client($uri);
 $database = $client->gadgget;
 $collection = $database->usuarios;
 
-$usuarios = $collection->find();
-session_start();
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.html");
+    exit();
+}
+
+$usuarioNombre = $_SESSION['usuario'];
+
+$usuario = $collection->findOne(['nombre' => $usuarioNombre]);
+
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -52,7 +61,7 @@ session_start();
                         <a class="nav-link" href="tienda.php">TIENDA</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="conciertos.html">GADGGET</a>
+                        <a class="nav-link" href="gadgget.php">GADGGET</a>
                     </li>
                     <li class="nav-item">
                 <a class="nav-link" href="pedidos.php">PEDIDOS</a>
@@ -63,7 +72,7 @@ session_start();
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">
+                        <a class="nav-link" href="login.php">
                             <img src="ico/acceso (3).png" alt="Sesion" height="35" class="nav-icon">
                         </a>
                     </li>
@@ -73,7 +82,9 @@ session_start();
     </nav>
     <div class="contenedorusuario">
         <div class="contenedorfotouser">
-            <img src="ico/acceso (2).png" alt="" srcset="" class="fotouser">
+            <img src="ico/avatar.png" alt="" srcset="" class="fotouser">
+            <h2 class="nombreuser"><?= htmlspecialchars($usuarioNombre) ?></h2>
+
         </div>
         <div class="datosuser">
             <button type="submit" class="salir" onclick="window.location.href='cerrarsesion.php';">SALIR</button>
@@ -81,65 +92,62 @@ session_start();
         </div>
     </div>
     <footer class="text-center text-white" style="background-color: #000000">
-        <div class="container">
-            <section class="mt-5">
-                <div class="row text-center d-flex justify-content-center pt-5">
-                    <div class="col-md-2">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <a href="home" class="text-white">Home</a>
-                        </h6>
-                    </div>
-                    <div class="col-md-2">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <a href="discos.html" class="text-white">Discos</a>
-                        </h6>
-                    </div>
-                    <div class="col-md-2">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <a href="conciertos.html" class="text-white">Conciertos</a>
-                        </h6>
-                    </div>
-                    <div class="col-md-2">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <a href="contacto.html" class="text-white">Contacto</a>
-                        </h6>
-                    </div>
-                    <div class="col-md-2">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <a href="login.html" class="text-white">SESIÓN</a>
-                        </h6>
-                    </div>
-                </div>
-            </section>
-            <hr class="my-5" />
-            <section class="mb-5">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-8">
-                        <p>
-                            Página web Prototipo de tienda funcional elaborada por Ángel Panadero Rodríguez. Estudiante
-                            2º año Desarrollo de Aplicaciones Web.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section class="text-center mb-5">
-                <a href="https://x.com/i/flow/login?redirect_after_login=%2Fjarfaiter_dice" class="text-white me-4">
-                    <img src="iconos/twitter (1).png" alt="" class="iconofooter">
-                </a>
-                <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fjarfaiter%2F%3Flocale%3Des_ES"
-                    class="text-white me-4">
-                    <img src="iconos/facebook (1).png" alt="" class="iconofooter">
-                </a>
-                <a href="https://www.youtube.com/channel/UCUCxEgrssyvszRfaLBmFxhA" class="text-white me-4">
-                    <img src="iconos/youtube (1).png" alt="" class="iconofooter">
-                </a>
-            </section>
+    <div class="container">
+      <section class="mt-5">
+        <div class="row text-center d-flex justify-content-center pt-5">
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="home" class="text-white">Home</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="tienda.php" class="text-white">Tienda</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="gadgget.php" class="text-white">Gadgget</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="pedidos.php" class="text-white">Pedidos</a>
+            </h6>
+          </div>
         </div>
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-            © 2025 Copyright:
-            <a class="text-white" href="contacto.html">GADGGET</a>
+      </section>
+      <hr class="my-5" />
+      <section class="mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <p>
+              Página web Prototipo de tienda funcional elaborada por Ángel Panadero Rodríguez. Estudiante 2º año Desarrollo de Aplicaciones Web.
+            </p>
+          </div>
         </div>
-    </footer>
+      </section>
+      <section class="text-center mb-5">
+        <a href="https://x.com/i/flow/login?redirect_after_login=%2Fjarfaiter_dice" class="text-white ">
+          <img src="ico/twitter.png" alt="" class="iconofooter">
+        </a>
+        <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fjarfaiter%2F%3Flocale%3Des_ES" class="text-white ">
+            <img src="ico/facebook.png" alt="" class="iconofooter">
+        </a>
+        <a href="https://www.youtube.com/channel/UCUCxEgrssyvszRfaLBmFxhA" class="text-white ">
+            <img src="ico/youtube (1).png" alt="" class="iconofooter">
+        </a>
+      </section>
+    </div>
+    <div
+         class="text-center p-3"
+         >
+      © 2025 Copyright:
+      <a class="text-white" href=""
+         >GADGGET</a   
+        >
+    </div>
+  </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

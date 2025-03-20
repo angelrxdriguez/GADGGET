@@ -12,7 +12,7 @@ $usuariosCollection = $database->usuarios;
 $pedidosCollection = $database->pedidos;
 
 if (!isset($_SESSION['usuario'])) {
-    echo "<script>alert('INICIA SESIÓN PARA COMPRAR.'); window.location.href='login.html';</script>";
+    echo "<script>window.location.href='login.html';</script>";
     exit();
 }
 

@@ -47,13 +47,13 @@ $productos = $collection->find(['tipo' => 'cascos']);
                     <a class="nav-link active" href="tienda.php">TIENDA</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="conciertos.html">GADGGET</a>
+                  <a class="nav-link" href="gadgget.php">GADGGET</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="pedidos.php">PEDIDOS</a>
             </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="carrito.html">
+                    <a class="nav-link" href="carrito.php">
                         <img src="ico/carrito-de-compras (1).png" alt="Carrito" height="35" class="nav-icon">
                     </a>
                 </li>
@@ -63,7 +63,7 @@ $productos = $collection->find(['tipo' => 'cascos']);
             <?= htmlspecialchars($usuario); ?>
         </a>
     <?php else: ?>
-        <a class="nav-link" href="login.html">
+        <a class="nav-link" href="login.php">
             <img src="ico/acceso (2).png" alt="Sesion" height="35" class="nav-icon">
         </a>
     <?php endif; ?>
@@ -73,6 +73,17 @@ $productos = $collection->find(['tipo' => 'cascos']);
         </div>
     </div>
 </nav>
+<div class="video-nav-container">
+    <video autoplay loop muted playsinline class="video-fondo">
+        <source src="video/cascos.mp4">
+        Tu navegador no soporta videos.
+    </video>
+    
+    <nav class="navbar navbar-expand-lg"> 
+        <div class="container-fluid justify-content-center">
+        </div>
+    </nav>
+</div>
 <a href="tienda.php" class="enlacefiltro"><h3 class="filtro sub" id="todos">TODOS</h3></a>
 <div class="filtros">
 <a href="subratones.php" class="enlacefiltro"><h3 class="filtro"><img src="ico/computer-mouse.png" id="raton" class="icofiltro"></h3></a>
@@ -107,22 +118,17 @@ $productos = $collection->find(['tipo' => 'cascos']);
           </div>
           <div class="col-md-2">
             <h6 class="text-uppercase font-weight-bold">
-              <a href="discos.html" class="text-white">Discos</a>
+              <a href="tienda.php" class="text-white">Tienda</a>
             </h6>
           </div>
           <div class="col-md-2">
             <h6 class="text-uppercase font-weight-bold">
-              <a href="conciertos.html" class="text-white">Conciertos</a>
+              <a href="gadgget.php" class="text-white">Gadgget</a>
             </h6>
           </div>
           <div class="col-md-2">
             <h6 class="text-uppercase font-weight-bold">
-              <a href="contacto.html" class="text-white">Contacto</a>
-            </h6>
-          </div>
-          <div class="col-md-2">
-            <h6 class="text-uppercase font-weight-bold">
-              <a href="login.html" class="text-white">SESIÓN</a>
+              <a href="pedidos.php" class="text-white">Pedidos</a>
             </h6>
           </div>
         </div>
@@ -138,14 +144,14 @@ $productos = $collection->find(['tipo' => 'cascos']);
         </div>
       </section>
       <section class="text-center mb-5">
-        <a href="https://x.com/i/flow/login?redirect_after_login=%2Fjarfaiter_dice" class="text-white me-4">
-          <img src="iconos/twitter (1).png" alt="" class="iconofooter">
+        <a href="https://x.com/i/flow/login?redirect_after_login=%2Fjarfaiter_dice" class="text-white ">
+          <img src="ico/twitter.png" alt="" class="iconofooter">
         </a>
-        <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fjarfaiter%2F%3Flocale%3Des_ES" class="text-white me-4">
-            <img src="iconos/facebook (1).png" alt="" class="iconofooter">
+        <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fjarfaiter%2F%3Flocale%3Des_ES" class="text-white ">
+            <img src="ico/facebook.png" alt="" class="iconofooter">
         </a>
-        <a href="https://www.youtube.com/channel/UCUCxEgrssyvszRfaLBmFxhA" class="text-white me-4">
-            <img src="iconos/youtube (1).png" alt="" class="iconofooter">
+        <a href="https://www.youtube.com/channel/UCUCxEgrssyvszRfaLBmFxhA" class="text-white ">
+            <img src="ico/youtube (1).png" alt="" class="iconofooter">
         </a>
       </section>
     </div>
@@ -153,7 +159,7 @@ $productos = $collection->find(['tipo' => 'cascos']);
          class="text-center p-3"
          >
       © 2025 Copyright:
-      <a class="text-white" href="contacto.html"
+      <a class="text-white" href=""
          >GADGGET</a   
         >
     </div>

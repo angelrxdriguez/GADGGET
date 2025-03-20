@@ -53,7 +53,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
             <?= htmlspecialchars($usuario); ?>
         </a>
     <?php else: ?>
-        <a class="nav-link" href="login.html">
+        <a class="nav-link" href="login.php">
             <img src="ico/acceso (2).png" alt="Sesion" height="35" class="nav-icon">
         </a>
     <?php endif; ?>
@@ -87,7 +87,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
           </div>
           <div class="col-md-2">
             <h6 class="text-uppercase font-weight-bold">
-              <a href="discos.html" class="text-white">Tienda</a>
+              <a href="tienda.php" class="text-white">Tienda</a>
             </h6>
           </div>
           <div class="col-md-2">
@@ -97,7 +97,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
           </div>
           <div class="col-md-2">
             <h6 class="text-uppercase font-weight-bold">
-              <a href="contacto.html" class="text-white">Pedidos</a>
+              <a href="pedidos.php" class="text-white">Pedidos</a>
             </h6>
           </div>
         </div>
@@ -128,7 +128,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
          class="text-center p-3"
          >
       © 2025 Copyright:
-      <a class="text-white" href="contacto.html"
+      <a class="text-white" href=""
          >GADGGET</a   
         >
     </div>

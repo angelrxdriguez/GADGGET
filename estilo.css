@@ -11,7 +11,15 @@ body{
     height: 450px; 
     overflow: hidden;
 }
-
+.infovideo{
+color: white;
+text-align: center;
+margin-top: 8%;
+background-color: #00000078;
+width: 100%;
+padding: 2%;
+border-radius: 25px;
+}
 .video-fondo {
     position: absolute;
     top: 50%;
@@ -138,7 +146,9 @@ box-shadow: 2px 2px 20px 2px red;
     grid-auto-flow: dense; 
 }
 .card.producto{
+    height: 100%;
     background-color: #ffffff;
+    border-bottom: solid 20px;
 }
 .card.producto:hover{
 box-shadow: 2px 2px 20px 2px red;
@@ -178,13 +188,15 @@ box-shadow: 2px 2px 20px 2px red;
 .alert.alert-light{
     position: fixed;
     z-index: 1;
-    width: 100%;
+    width: 50%;
+    margin-right: 25%;
     text-align: center;
     display: none; 
 }
 .enlacesubtienda{
     text-decoration: none;
-    color: black;
+    color: black ;
+    
 }
 /*SUBTIENDA-----*/
 .contenedorsub {
@@ -462,41 +474,64 @@ box-shadow: 2px 2px 20px 2px red;
 }
 
 /*usuario apartado*/
-.contenedorusuario{
-text-align: center;
-background-color: #2e2e2e;
-padding-top: 5%;
-padding-bottom: 5%;
-}
-.contenedorfotouser{
+.contenedorusuario {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 60px;
+    max-width: 550px;
+    margin: 40px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-.fotouser{
-width: 20% !important;
-}
-.datosuser{
-margin-top: 2%;
-color: white;
-}
-.correouser{
 
+.contenedorfotouser {
+    text-align: center;
+    margin-bottom: 15px;
 }
-.salir{
-margin-top: 3%;
-padding: 1%;
-padding-left: 2%;
-padding-right: 2%;
-border-radius: 25px;
-border: none;
-background-color: white !important;
-font-size: 150%;
+
+.fotouser {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
 }
-.salir:hover{
-background-color: red !important;
-color: white;
+
+.fotouser:hover {
+    transform: scale(1.1);
 }
+
+.nombreuser {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.datosuser {
+    width: 100%;
+    text-align: center;
+}
+
+.salir {
+    background: #dc3545;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 80%;
+}
+
+.salir:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
 /*CESTAAAA ------------------!!!!!*/
 
 .carrito {

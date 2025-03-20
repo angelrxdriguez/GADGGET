@@ -13,4 +13,10 @@ ultimas***********************
 -aceptar pedido         si
 -stock no mostrar       si
 -solo entrar admin      si
--footer
+-footer                 si
+
+Estetica ya por-.-----
+debes iniciar sesion para ver tus pedidos
+videos
+todas las cartas ocupan lo mismo
+cerrar sesion

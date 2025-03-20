@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $precio = floatval($_POST['precio']);
     $imagen = trim($_POST['imagen']);
     $stock = intval($_POST['stock']);
-    $tipo = trim($_POST['tipo']);  // Aquí agregamos el tipo
+    $tipo = trim($_POST['tipo']);
 
     if (empty($nombre) || empty($descripcion) || empty($imagen) || $precio <= 0 || $stock < 0 || empty($tipo)) {
         echo "<script>alert('Por favor, complete todos los campos correctamente.'); window.location.href='admin.php';</script>";

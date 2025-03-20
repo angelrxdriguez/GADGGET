@@ -12,7 +12,7 @@ $usuariosCollection = $database->usuarios;
 $productosCollection = $database->productos;
 
 if (!isset($_SESSION['usuario'])) {
-    echo "<script>alert('Inicia sesion para ver el carrito.'); window.location.href='login.html';</script>";
+    echo "<script>window.location.href='login.html';</script>";
     exit();
 }
 
@@ -77,7 +77,7 @@ if (!$usuario || !isset($usuario['cesta']) || empty($usuario['cesta'])) {
                     <a class="nav-link" href="tienda.php">TIENDA</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="conciertos.html">GADGGET</a>
+                  <a class="nav-link" href="gadgget.php">GADGGET</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="pedidos.php">PEDIDOS</a>
@@ -93,7 +93,7 @@ if (!$usuario || !isset($usuario['cesta']) || empty($usuario['cesta'])) {
             <?= htmlspecialchars($usuario['nombre']); ?>
         </a>
     <?php else: ?>
-        <a class="nav-link" href="login.html">
+        <a class="nav-link" href="login.php">
             <img src="ico/acceso (2).png" alt="Sesion" height="35" class="nav-icon">
         </a>
     <?php endif; ?>
@@ -133,7 +133,63 @@ if (!$usuario || !isset($usuario['cesta']) || empty($usuario['cesta'])) {
         <!--no lo uso-->
     <input type="hidden" name="id" value="<?= $producto['_id'] ?>">
 <button type="submit" class="btn comprar">COMPRAR</button>
-</form>
+</form><footer class="text-center text-white" style="background-color: #000000">
+    <div class="container">
+      <section class="mt-5">
+        <div class="row text-center d-flex justify-content-center pt-5">
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="home" class="text-white">Home</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="tienda.php" class="text-white">Tienda</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="gadgget.php" class="text-white">Gadgget</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="pedidos.php" class="text-white">Pedidos</a>
+            </h6>
+          </div>
+        </div>
+      </section>
+      <hr class="my-5" />
+      <section class="mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <p>
+              Página web Prototipo de tienda funcional elaborada por Ángel Panadero Rodríguez. Estudiante 2º año Desarrollo de Aplicaciones Web.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="text-center mb-5">
+        <a href="https://x.com/i/flow/login?redirect_after_login=%2Fjarfaiter_dice" class="text-white ">
+          <img src="ico/twitter.png" alt="" class="iconofooter">
+        </a>
+        <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fjarfaiter%2F%3Flocale%3Des_ES" class="text-white ">
+            <img src="ico/facebook.png" alt="" class="iconofooter">
+        </a>
+        <a href="https://www.youtube.com/channel/UCUCxEgrssyvszRfaLBmFxhA" class="text-white ">
+            <img src="ico/youtube (1).png" alt="" class="iconofooter">
+        </a>
+      </section>
+    </div>
+    <div
+         class="text-center p-3"
+         >
+      © 2025 Copyright:
+      <a class="text-white" href=""
+         >GADGGET</a   
+        >
+    </div>
+  </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>

@@ -143,66 +143,63 @@ $productos = $collection->find();
             <?php endforeach; ?>
     </div>
 
-    <footer class="text-center text-white">
-        <div class="container">
-            <section class="mt-5">
-                <div class="row text-center d-flex justify-content-center pt-5">
-                    <div class="col-md-2">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <a href="home" class="text-white">Home</a>
-                        </h6>
-                    </div>
-                    <div class="col-md-2">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <a href="discos.html" class="text-white">Discos</a>
-                        </h6>
-                    </div>
-                    <div class="col-md-2">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <a href="conciertos.html" class="text-white">Conciertos</a>
-                        </h6>
-                    </div>
-                    <div class="col-md-2">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <a href="contacto.html" class="text-white">Contacto</a>
-                        </h6>
-                    </div>
-                    <div class="col-md-2">
-                        <h6 class="text-uppercase font-weight-bold">
-                            <a href="login.html" class="text-white">SESIÓN</a>
-                        </h6>
-                    </div>
-                </div>
-            </section>
-            <hr class="my-5" />
-            <section class="mb-5">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-8">
-                        <p>
-                            Página web Prototipo de tienda funcional elaborada por Ángel Panadero Rodríguez. Estudiante
-                            2º año Desarrollo de Aplicaciones Web.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section class="text-center mb-5">
-                <a href="https://x.com/i/flow/login?redirect_after_login=%2Fjarfaiter_dice" class="text-white me-4">
-                    <img src="iconos/twitter (1).png" alt="" class="iconofooter">
-                </a>
-                <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fjarfaiter%2F%3Flocale%3Des_ES"
-                    class="text-white me-4">
-                    <img src="iconos/facebook (1).png" alt="" class="iconofooter">
-                </a>
-                <a href="https://www.youtube.com/channel/UCUCxEgrssyvszRfaLBmFxhA" class="text-white me-4">
-                    <img src="iconos/youtube (1).png" alt="" class="iconofooter">
-                </a>
-            </section>
+    <footer class="text-center text-white" style="background-color: #000000">
+    <div class="container">
+      <section class="mt-5">
+        <div class="row text-center d-flex justify-content-center pt-5">
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="home" class="text-white">Home</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="tienda.php" class="text-white">Tienda</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="gadgget.php" class="text-white">Gadgget</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="pedidos.php" class="text-white">Pedidos</a>
+            </h6>
+          </div>
         </div>
-        <div class="text-center p-3">
-            © 2025 Copyright:
-            <a class="text-white" href="contacto.html">GADGGET</a>
+      </section>
+      <hr class="my-5" />
+      <section class="mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <p>
+              Página web Prototipo de tienda funcional elaborada por Ángel Panadero Rodríguez. Estudiante 2º año Desarrollo de Aplicaciones Web.
+            </p>
+          </div>
         </div>
-    </footer>
+      </section>
+      <section class="text-center mb-5">
+        <a href="https://x.com/i/flow/login?redirect_after_login=%2Fjarfaiter_dice" class="text-white ">
+          <img src="ico/twitter.png" alt="" class="iconofooter">
+        </a>
+        <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fjarfaiter%2F%3Flocale%3Des_ES" class="text-white ">
+            <img src="ico/facebook.png" alt="" class="iconofooter">
+        </a>
+        <a href="https://www.youtube.com/channel/UCUCxEgrssyvszRfaLBmFxhA" class="text-white ">
+            <img src="ico/youtube (1).png" alt="" class="iconofooter">
+        </a>
+      </section>
+    </div>
+    <div
+         class="text-center p-3"
+         >
+      © 2025 Copyright:
+      <a class="text-white" href=""
+         >GADGGET</a   
+        >
+    </div>
+  </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="src/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
