@@ -9,5 +9,8 @@ CESTA y pago:
 - añadir cesta se añade a un array dentro de el usuario que se llama cesta AQUI SE RESTA EL STOCK AL AÑADIR CESTA
 - entra en cesta y ve los productos que añadio
 ultimas***********************
--stock no mostrar
+-cancelar pedido        si
+-aceptar pedido         si
+-stock no mostrar       si
+-solo entrar admin      si
 -footer
