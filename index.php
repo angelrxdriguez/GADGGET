@@ -41,7 +41,7 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
                     <a class="nav-link" href="tienda.php">TIENDA</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="conciertos.html">GADGGET</a>
+                  <a class="nav-link" href="gadgget.php">GADGGET</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="pedidos.php">PEDIDOS</a>
@@ -87,22 +87,17 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
           </div>
           <div class="col-md-2">
             <h6 class="text-uppercase font-weight-bold">
-              <a href="discos.html" class="text-white">Discos</a>
+              <a href="discos.html" class="text-white">Tienda</a>
             </h6>
           </div>
           <div class="col-md-2">
             <h6 class="text-uppercase font-weight-bold">
-              <a href="conciertos.html" class="text-white">Conciertos</a>
+              <a href="gadgget.php" class="text-white">Gadgget</a>
             </h6>
           </div>
           <div class="col-md-2">
             <h6 class="text-uppercase font-weight-bold">
-              <a href="contacto.html" class="text-white">Contacto</a>
-            </h6>
-          </div>
-          <div class="col-md-2">
-            <h6 class="text-uppercase font-weight-bold">
-              <a href="login.html" class="text-white">SESIÓN</a>
+              <a href="contacto.html" class="text-white">Pedidos</a>
             </h6>
           </div>
         </div>
@@ -118,14 +113,14 @@ $usuario = isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
         </div>
       </section>
       <section class="text-center mb-5">
-        <a href="https://x.com/i/flow/login?redirect_after_login=%2Fjarfaiter_dice" class="text-white me-4">
-          <img src="iconos/twitter (1).png" alt="" class="iconofooter">
+        <a href="https://x.com/i/flow/login?redirect_after_login=%2Fjarfaiter_dice" class="text-white ">
+          <img src="ico/twitter.png" alt="" class="iconofooter">
         </a>
-        <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fjarfaiter%2F%3Flocale%3Des_ES" class="text-white me-4">
-            <img src="iconos/facebook (1).png" alt="" class="iconofooter">
+        <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2Fjarfaiter%2F%3Flocale%3Des_ES" class="text-white ">
+            <img src="ico/facebook.png" alt="" class="iconofooter">
         </a>
-        <a href="https://www.youtube.com/channel/UCUCxEgrssyvszRfaLBmFxhA" class="text-white me-4">
-            <img src="iconos/youtube (1).png" alt="" class="iconofooter">
+        <a href="https://www.youtube.com/channel/UCUCxEgrssyvszRfaLBmFxhA" class="text-white ">
+            <img src="ico/youtube (1).png" alt="" class="iconofooter">
         </a>
       </section>
     </div>

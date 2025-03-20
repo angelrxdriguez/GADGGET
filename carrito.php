@@ -22,20 +22,17 @@ $usuario = $usuariosCollection->findOne(['nombre' => $usuarioNombre]);
 if (!$usuario || !isset($usuario['cesta']) || empty($usuario['cesta'])) {
     $productos = [];
 } else {
-    // Obtener IDs de los productos en la cesta
-    $cesta = (array) $usuario['cesta']; // Convertimos BSONArray a un array PHP
-    $productoIds = array_map(fn($item) => new ObjectId($item['producto_id']), $cesta);
+    $cesta = (array) $usuario['cesta']; 
+    $productoIds = array_map(fn($productoid) => new ObjectId($productoid['producto_id']), $cesta);
     
 
-    // Buscar productos en la base de datos
     $productosCursor = $productosCollection->find(['_id' => ['$in' => $productoIds]]);
     $productos = iterator_to_array($productosCursor);
 
-    // Agregar la cantidad de cada producto
     foreach ($productos as $producto) {
-        foreach ($usuario['cesta'] as $item) {
-            if ($item['producto_id'] == (string)$producto['_id']) {
-                $producto['cantidad'] = $item['cantidad'];
+        foreach ($usuario['cesta'] as $productoid) {
+            if ($productoid['producto_id'] == (string)$producto['_id']) {
+                $producto['cantidad'] = $productoid['cantidad'];
                 break;
             }
         }
@@ -77,7 +74,7 @@ if (!$usuario || !isset($usuario['cesta']) || empty($usuario['cesta'])) {
                 </li>
                
                 <li class="nav-item">
-                    <a class="nav-link active" href="tienda.php">TIENDA</a>
+                    <a class="nav-link" href="tienda.php">TIENDA</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="conciertos.html">GADGGET</a>
@@ -87,7 +84,7 @@ if (!$usuario || !isset($usuario['cesta']) || empty($usuario['cesta'])) {
             </li>
                 <li class="nav-item">
                     <a class="nav-link" href="carrito.php">
-                        <img src="ico/carrito-de-compras (1).png" alt="Carrito" height="35" class="nav-icon">
+                        <img src="ico/carrito-de-compras (2).png" alt="Carrito" height="35" class="nav-icon">
                     </a>
                 </li>
                 <li class="nav-item">
