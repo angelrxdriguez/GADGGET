@@ -25,4 +25,8 @@ $(document).ready(function() {
             form.submit(); 
         }, 1500);
     });
+    $(".cancelar").on("click", function () {
+        var pedidoId = $(this).data("id"); 
+        $("#cancelarForm input[name='pedido_id']").val(pedidoId); 
+    });
 });

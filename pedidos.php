@@ -6,7 +6,7 @@ $uri = "mongodb+srv://angelrp:abc123.@cluster0.76po7.mongodb.net/?retryWrites=tr
 $client = new MongoDB\Client($uri);
 $database = $client->gadgget;
 $collection_usuarios = $database->usuarios;
-$collection_pedidos = $database->pedidos;
+$collection_pedidos = $database->pedidosAceptados;
 $collection_productos = $database->productos;
 
 if (!isset($_SESSION['usuario'])) {
@@ -47,7 +47,6 @@ $pedidos = $collection_pedidos->find(['usuario' => $usuario['nombre']]);
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">

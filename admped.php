@@ -67,41 +67,65 @@ $pedidos = $collection_pedidos->find();
                     <img src="<?= $productoDatos['imagen'] ?>" class="fotoped" alt="">
                     <h3 class="titped"><?= $productoDatos['nombre'] ?></h3>
                     <h3 class="cantidadped">Pide : <?= $producto['cantidad'] ?></h3>
-                    <h3 class="stockped">Stock :<?= $productoDatos['stock'] ?></h3>
+                    <h3 class="stockped">Stock : <?= $productoDatos['stock'] ?></h3>
                 </div>
             <?php endforeach; ?>
 
             <div class="botones">
-                <button class="btn btn-danger cancelar" data-bs-toggle="modal" data-bs-target="#cancelarModal" data-id="<?= $pedido['_id'] ?>">
+                <button class="btn btn-danger cancelar" data-bs-toggle="modal" data-bs-target="#cancelarModal-<?= $pedido['_id'] ?>">
                     CANCELAR PEDIDO
                 </button>
-                <button class="btn btn-success aceptar" data-bs-toggle="modal" data-bs-target="#aceptarModal" data-id="<?= $pedido['_id'] ?>">
+                <button class="btn btn-success aceptar" data-bs-toggle="modal" data-bs-target="#aceptarModal-<?= $pedido['_id'] ?>">
                     ACEPTAR PEDIDO
                 </button>
             </div>
         </div>
-    <?php endforeach; ?>
-</div>
-<div class="modal fade" id="cancelarModal" tabindex="-1" aria-labelledby="cancelarModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="cancelarModalLabel">¿Estás seguro de que deseas cancelar este pedido?</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Este pedido no se tramitará</p>
-                <form id="cancelarForm" action="cancelarpedido.php" method="POST">
-                    <input type="hidden" name="id" id="pedidoId">
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-danger">Cancelar pedido</button>
+
+        <div class="modal fade" id="cancelarModal-<?= $pedido['_id'] ?>" tabindex="-1" aria-labelledby="cancelarModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cancelarModalLabel">¿Cancelar pedido?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                </form>
+                    <div class="modal-body">
+                        <p>Este pedido no se tramitará</p>
+                        <form action="cancelarpedido.php" method="POST">
+                            <input type="hidden" name="pedido_id" value="<?= $pedido['_id'] ?>">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-danger">Cancelar pedido</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="modal fade" id="aceptarModal-<?= $pedido['_id'] ?>" tabindex="-1" aria-labelledby="aceptarModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="aceptarModalLabel">¿Aceptar pedido?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Este pedido se tramitará</p>
+                        <form action="aceptarpedido.php" method="POST">
+                            <input type="hidden" name="pedido_id" value="<?= $pedido['_id'] ?>">
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-success">Aceptar pedido</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="src/jquery.js"></script>
 </body>
 </html>
